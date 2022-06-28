@@ -1,8 +1,9 @@
 <template>
 <Header/>
- <div class="main-container">
+ <div class="main-container logon-bg">
     <div class="logon-container">
-        <h2 class="my-2">Inicio de Sesión</h2>
+        <i class="fa-solid fa-graduation-cap fa-4x brand-max-widt-icon"></i>
+        <h1 class="my-2">Inicio de Sesión</h1>
         <hr class="w-100">
       <span class="vertical-group w-100 my-1">
         <label for="username">Correo</label>

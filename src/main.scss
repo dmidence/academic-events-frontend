@@ -5,6 +5,7 @@
 
 html {
   box-sizing: border-box;
+  font-size: 90%;
 }
 .fs-1 {
   font-size: calc(1.375rem + 1.5vw);
@@ -165,6 +166,16 @@ a {
   position: relative;
 }
 
+.brand-max-widt-icon{
+  width: 100%;
+}
+
+.main-container.logon-bg{
+  background: linear-gradient(0deg, rgba(0, 132, 255, 0.3), rgba(0, 153, 255, 0.3)),url("@../../assets/img/4.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  
+}
 .logon-container {
   width: 25%;
   top: 5%;
@@ -177,6 +188,7 @@ a {
   justify-content: space-around;
   border: 1px solid gray;
   border-radius: 0.3rem;
+  background-color: white;
 }
 
 .vertical-group {
@@ -189,6 +201,11 @@ a {
     margin-top: 0;
   }
 }
+
+.text-white{
+  color: white;
+}
+
 
 @media screen and (max-width: 962px) {
   .logon-container {

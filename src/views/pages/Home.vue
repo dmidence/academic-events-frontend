@@ -1,8 +1,8 @@
 <template>
-    <Header/>
-    <h1>Landing</h1>
-    <!-- <Button label="Home Button" /> -->
-    <RouterLink to="/signin">Signin</RouterLink>
+<Header/>
+ <div class="main-container">
+   <h1>Home</h1>
+ </div>
 </template>
 
 <script>

@@ -3,6 +3,8 @@
     <template #start>
       <routerLink class="decoration-none" to="/">
       <!-- <i class="pi pi-home" style="font-size: 3rem"></i> -->
+      <i class="fa-solid fa-graduation-cap fa-4x text-white"></i>
+
       </routerLink>
     </template>
     <template #end>
@@ -21,7 +23,7 @@ export default {
   data() {
     return {
       items: [
-        { label: "Inicio" },
+        { label: "Eventos Académicos" },
         //   {
         //     label: "File",
         //     icon: "pi pi-fw pi-file",
@@ -156,6 +158,10 @@ export default {
   top: 0;
   height: 10vh;
   width: 100%;
+  background-color:#061e31;
+  -webkit-box-shadow: 0px 12px 27px -11px #000000; 
+  box-shadow: 0px 12px 27px -11px #000000;
+  border:none;
 }
 
 ::v-deep(.p-tabmenu-nav) {
@@ -165,4 +171,29 @@ export default {
 ::v-deep(.p-tabmenu-nav.p-reset) {
   padding: 0 50px;
 }
+
+::v-deep(.p-button-label){
+  color: white;
+  text-decoration: none;
+}
+
+::v-deep(.p-menuitem-text){
+  color:#2196F3 !important;
+  font-weight: bolder;
+  font-size: 2rem;
+  background-color: transparent;
+
+  &:hover{
+    color: White !important;
+  }
+}
+
+::v-deep(.p-menuitem-link){
+  &:hover{
+    background-color: transparent !important;
+  }
+}
+
+
+
 </style>
