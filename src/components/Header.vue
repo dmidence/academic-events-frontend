@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       items: [
-        { label: "Eventos Académicos" },
+        { label: "Academic Events" },
         //   {
         //     label: "File",
         //     icon: "pi pi-fw pi-file",
