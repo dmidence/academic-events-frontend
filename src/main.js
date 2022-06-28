@@ -15,18 +15,33 @@ import 'primeicons/primeicons.css';
 import Button from 'primevue/button';
 import Menubar from 'primevue/menubar';
 import InputText from 'primevue/inputtext';
+import Toolbar from 'primevue/toolbar';
+import Toast from 'primevue/toast';
+import ToastService from 'primevue/toastservice';
+import Dialog from 'primevue/dialog';
+import Calendar from 'primevue/calendar';
+import RadioButton from 'primevue/radiobutton';
 
-//APP ISNT
+
+
+
+//APP ISNTa
 const app = createApp(App);
 
 //CONFS
 app.use(router);
 app.use(PrimeVue);
+app.use(ToastService);
 
 //### COMPONENTS INST
 app.component('Button', Button);
 app.component('Menubar', Menubar);
 app.component('InputText', InputText);
+app.component('Toolbar', Toolbar);
+app.component('Toast', Toast);
+app.component('Dialog', Dialog);
+app.component('Calendar', Calendar);
+app.component('RadioButton', RadioButton);
 
 
 app.mount('#app');
