@@ -137,6 +137,10 @@ a {
   width: 40%;
 }
 
+.w-45 {
+  width: 45%;
+}
+
 .w-50 {
   width: 50%;
 }
@@ -154,6 +158,11 @@ a {
 }
 .w-100 {
   width: 100%;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-between;
 }
 
 .text-center {
