@@ -1,5 +1,5 @@
 <template>
-  <Header />
+  <Header :logged="false" />
   <div class="main-container logon-bg">
     <div class="logon-container">
       <i class="fa-solid fa-graduation-cap fa-4x brand-max-widt-icon"></i>

@@ -169,6 +169,7 @@ a {
   text-align: center;
 }
 .main-container {
+  padding: 2rem;
   margin-top: 10vh;
   width: 100%;
   min-height: 90vh;
@@ -215,6 +216,9 @@ a {
   color: white;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
 
 @media screen and (max-width: 962px) {
   .logon-container {
