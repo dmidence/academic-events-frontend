@@ -21,6 +21,7 @@ import ToastService from 'primevue/toastservice';
 import Dialog from 'primevue/dialog';
 import Calendar from 'primevue/calendar';
 import RadioButton from 'primevue/radiobutton';
+import Card from 'primevue/card';
 
 
 
@@ -42,6 +43,7 @@ app.component('Toast', Toast);
 app.component('Dialog', Dialog);
 app.component('Calendar', Calendar);
 app.component('RadioButton', RadioButton);
+app.component('Card', Card);
 
 
 app.mount('#app');
