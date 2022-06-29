@@ -5,16 +5,21 @@
     </div>
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
     <a @click="$refs.eventModal.openNew()">Crear Eventos</a>
-    <a>Section 2</a>
-    <a>Section 3</a>
-    <a>Section 4</a>
+    <a ref="link" >Section 2</a>
+    <a ref="link" >Section 3</a>
+    <a ref="link" >Section 4</a>
     <div class="centered">
         <i class="fa-solid fa-arrow-right-from-bracket fa-2x text-white"></i>
     </div>
   </div>
+  <EventModal ref = "eventModal"/>
 </template>
 
 <script>
+
+import EventModal from './EventModal.vue';
+
+
 export default {
   props: [],
   mounted() {},
@@ -35,7 +40,9 @@ export default {
     },
   },
   computed: {},
-  components: {},
+  components: {
+    EventModal
+  },
 };
 </script>
 
