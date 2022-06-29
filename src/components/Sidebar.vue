@@ -3,26 +3,30 @@
     <div class="centered">
       <i class="fa-solid fa-graduation-cap fa-4x text-white"></i>
     </div>
+
     <a href="javascript:void(0)"  class="closebtn" @click="closeNav()">&times;</a>
     <!-- <a @click="$refs.eventModal.openNew()">Crear Eventos</a>-->
     <Button label="Crear Eventos" icon="pi pi-calendar-plus" class="p-button-outlined" @click="$refs.eventModal.openNew()" style="margin: 7px"/>
     <Button label="Mis eventos" icon="pi pi-calendar" class="p-button-outlined" @click="$refs.cardEvento.openNew()" style="margin: 7px"/>
-    
-
     <a >Section 3</a>
     <a>Section 4</a>
+
     <div class="centered">
         <i class="fa-solid fa-arrow-right-from-bracket fa-2x text-white"></i>
     </div>
   </div>
+
   <CardEvento ref = "cardEvento"/>
+
   <EventModal ref = "eventModal"/>
 </template>
 
 <script>
 
 import EventModal from './EventModal.vue';
+
 import CardEvento from './CardEvento.vue';
+
 
 
 export default {
@@ -46,7 +50,9 @@ export default {
   },
   computed: {},
   components: {
+
     EventModal,CardEvento,
+
 
   },
 };
