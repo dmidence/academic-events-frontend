@@ -5,9 +5,9 @@
     </div>
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
     <a @click="$refs.eventModal.openNew()">Crear Eventos</a>
-    <a>Section 2</a>
-    <a>Section 3</a>
-    <a>Section 4</a>
+    <a ref="link" >Section 2</a>
+    <a ref="link" >Section 3</a>
+    <a ref="link" >Section 4</a>
     <div class="centered">
         <i class="fa-solid fa-arrow-right-from-bracket fa-2x text-white"></i>
     </div>
