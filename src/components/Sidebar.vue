@@ -12,9 +12,14 @@
         <i class="fa-solid fa-arrow-right-from-bracket fa-2x text-white"></i>
     </div>
   </div>
+  <EventModal ref = "eventModal"/>
 </template>
 
 <script>
+
+import EventModal from './EventModal.vue';
+
+
 export default {
   props: [],
   mounted() {},
@@ -35,7 +40,9 @@ export default {
     },
   },
   computed: {},
-  components: {},
+  components: {
+    EventModal
+  },
 };
 </script>
 
