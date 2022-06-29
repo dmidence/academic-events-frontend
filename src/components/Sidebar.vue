@@ -3,21 +3,26 @@
     <div class="centered">
       <i class="fa-solid fa-graduation-cap fa-4x text-white"></i>
     </div>
-    <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
-    <a @click="$refs.eventModal.openNew()">Crear Eventos</a>
-    <a>Section 2</a>
-    <a>Section 3</a>
+    <a href="javascript:void(0)"  class="closebtn" @click="closeNav()">&times;</a>
+    <!-- <a @click="$refs.eventModal.openNew()">Crear Eventos</a>-->
+    <Button label="Crear Eventos" icon="pi pi-calendar-plus" class="p-button-outlined" @click="$refs.eventModal.openNew()" style="margin: 7px"/>
+    <Button label="Mis eventos" icon="pi pi-calendar" class="p-button-outlined" @click="$refs.cardEvento.openNew()" style="margin: 7px"/>
+    
+
+    <a >Section 3</a>
     <a>Section 4</a>
     <div class="centered">
         <i class="fa-solid fa-arrow-right-from-bracket fa-2x text-white"></i>
     </div>
   </div>
+  <CardEvento ref = "cardEvento"/>
   <EventModal ref = "eventModal"/>
 </template>
 
 <script>
 
 import EventModal from './EventModal.vue';
+import CardEvento from './CardEvento.vue';
 
 
 export default {
@@ -41,7 +46,8 @@ export default {
   },
   computed: {},
   components: {
-    EventModal
+    EventModal,CardEvento,
+
   },
 };
 </script>
@@ -60,7 +66,7 @@ export default {
   overflow-x: hidden;
   padding-top: 160px;
   transition: 0.5s;
-
+  text-align:center;
   a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -87,6 +93,7 @@ i:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align:center;
   }
 }
 
@@ -96,6 +103,7 @@ i:hover{
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  text-align:center;
 }
 
 .openbtn {
