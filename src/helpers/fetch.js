@@ -16,18 +16,17 @@ const fetchSinToken = async (endpoint, data,method, params= {}) => {
 
 const fetchConToken = async (endpoint, data,method) => {
 
-    let userData = sessionStorage.getItem('academiceventstoken');
-    // Obtener TOKEN de userdata
-    // let token = JSON.parse()
-
+    let accessToken = sessionStorage.getItem('accessToken');
+    console.log("accessToken")
+    console.log(accessToken)
     return await axios({
         method: method,
         url: `${API_URL}/${endpoint}`,
         data: data,
         headers: { 
-            "Content-Type": "multipart/form-data;charset=UTF-8" ,
-            
-            "Authorization": `Bearer ${token}`
+            'Content-Type': 'application/json;charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+            "Authorization": `Bearer ${accessToken}`
         },
         // params
     })
