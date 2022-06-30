@@ -73,6 +73,7 @@
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
 import { customAlert } from "../../helpers/alerts";
+import { fetchSinToken } from "../../helpers/fetch";
 
 export default {
   name: "register",
