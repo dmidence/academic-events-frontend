@@ -7,23 +7,23 @@
         <hr class="w-100">
       <span class="vertical-group w-100 my-1">
         <label for="username">Nombre</label>
-        <InputText id="username" type="text" class="w-100 p-inputtext-sm" v-model="inputName"/>
+        <InputText id="username" placeholder="Ej: Ariel" type="text" class="w-100 p-inputtext-sm" v-model="inputName"/>
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userlastname">Apellido</label>
-        <InputText id="userlastname" placeholder="Nombre" type="text" class="w-100" v-model="inputLastname" />
+        <InputText id="userlastname" placeholder="Ej: Flores" type="text" class="w-100" v-model="inputLastname" />
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="useremail">Correo</label>
-        <InputText id="useremail" type="text" class="w-100" v-model="inputEmail" />
+        <InputText id="useremail" placeholder="Ej: ejemplo@unah.hn " type="text" class="w-100" v-model="inputEmail" />
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userpassword">Contraseña</label>
-        <InputText id="userpassword" type="text" class="w-100" v-model="inputPassword" />
+        <InputText id="userpassword" type="password" class="w-100" v-model="inputPassword" />
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userpasswordv">Confirmar Contraseña</label>
-        <InputText id="userpasswordv" type="text" class="w-100" v-model="inputPasswordv" />
+        <InputText id="userpasswordv" type="password" class="w-100" v-model="inputPasswordv" />
       </span>
       <span class="vertical-group w-100 my-1">
         <Button @click="register()" label="Registrar" class="w-100" />
@@ -70,7 +70,28 @@ export default {
          },
          "POST",
          {},
-         ).then(res => console.log (res))
+         ).then(res =>{
+          console.log(res);
+          customAlert(
+            "Registro Exitoso",
+            "¡Bienvenido, tu usuario ha sido registrado correctamente!",
+            "success"
+          )
+            .then(() => {
+              this.$router.push("Signin");
+            })
+            .catch((err) => {
+              console.log("Ha ocurrido un error al definir la alerta");
+              console.log(err);
+            });
+        })
+        .catch(() => {
+          customAlert(
+            "Ha ocurrido un error",
+            "Ocurrio un error al registrar tu usuario.",
+            "error"
+          );
+        });
     },
   },
  

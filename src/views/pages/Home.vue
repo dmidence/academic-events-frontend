@@ -19,6 +19,10 @@
   import EventModal from '../../components/EventModal.vue';
 
   export default {
+    name: 'Home',
+    // async created(){
+    //   const res = await 
+    // }
     props: [],
     mounted() {},
     data() {
