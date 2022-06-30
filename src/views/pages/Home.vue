@@ -31,7 +31,8 @@
         
       )
       .then(res =>{
-          console.log(res);
+         
+        sessionStorage.setItem('userData', JSON.stringify(res.data));
     })
     .catch(err =>{
     console.log(err);
