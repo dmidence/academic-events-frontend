@@ -40,7 +40,7 @@
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
 import { fetchSinToken, fetchConToken } from "../../helpers/fetch";
-import { customAlert } from "../../helpers/alerts";
+
 
 export default {
   name: "login",
