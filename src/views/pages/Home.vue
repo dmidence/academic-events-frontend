@@ -17,14 +17,26 @@
 <script>
   import Header from '../../components/Header.vue';
   import EventModal from '../../components/EventModal.vue';
-
+  import { fetchConToken } from '../../helpers/fetch';
   export default {
     name: 'Home',
-    // async created(){
-    //   const res = await 
-    // }
+    
     props: [],
-    mounted() {},
+    mounted() {
+      
+      fetchConToken(
+        "api/v1/users/me",
+        {},
+        "GET"
+        
+      )
+      .then(res =>{
+          console.log(res);
+    })
+    .catch(err =>{
+    console.log(err);
+    })
+  },
     data() {
       return {};
     },

@@ -60,7 +60,7 @@ export default {
          {},
          ).then(res =>{
           console.log(res.data);
-          sessionStorage.setItem('accessToken',res.data.accessToken);
+          sessionStorage.setItem('accessToken', JSON.stringify(res.data.accessToken));
           this.$router.push("Home");
           })
           .catch((err) => {
