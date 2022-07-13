@@ -1,7 +1,7 @@
 <template>
   <Header :logged="false" />
   <div class="main-container logon-bg">
-    <div class="logon-container text-center">
+    <div class="logon-container text-center" id="formvalidation">
       <i class="fa-solid fa-graduation-cap fa-4x brand-max-widt-icon"></i>
       <h1 class="my-2">Registro</h1>
       <hr class="w-100" />
@@ -9,12 +9,10 @@
         <label for="username">Nombre</label>
         <InputText
           id="username"
-
           placeholder="Ej: Ariel"
           type="text"
           class="w-100 p-inputtext-sm"
           v-model="inputName"
-
         />
       </span>
       <span class="vertical-group w-100 my-1">
@@ -23,7 +21,7 @@
           id="userlastname"
           placeholder="Ej: Flores"
           type="text"
-          class="w-100"
+          class="w-100 form-control"
           v-model="inputLastname"
         />
       </span>
@@ -41,6 +39,7 @@
         <label for="userpassword">Contraseña</label>
         <InputText
           id="userpassword"
+          placeholder="Contraseña"
           type="password"
           class="w-100"
           v-model="inputPassword"
@@ -50,6 +49,7 @@
         <label for="userpasswordv">Confirmar Contraseña</label>
         <InputText
           id="userpasswordv"
+          placeholder="Contraseña"
           type="password"
           class="w-100"
           v-model="inputPasswordv"
@@ -60,7 +60,6 @@
       </span>
 
       <span class="vertical-group centered-group w-100 my-1 fs-6 text-center">
-
         <span
           >¿Ya tienes una cuenta?,
           <router-link to="/Signin" class="text-center w-100"
@@ -79,7 +78,6 @@ import Footer from "../../components/Footer.vue";
 
 import { customAlert } from "../../helpers/alerts";
 import { fetchSinToken } from "../../helpers/fetch";
-
 
 export default {
   name: "register",

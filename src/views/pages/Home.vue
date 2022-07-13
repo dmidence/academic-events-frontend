@@ -2,8 +2,6 @@
   <Header :logged="true" />
   <div class="main-container">
     <h1>Home</h1>
-    <h1>mundillooooooooo</h1>
-       
   </div>
 
   <!-- Modal ref -->
@@ -19,20 +17,12 @@ export default {
     Header,
     EventModal,
   },
-  methods: {
-
-   
-  },
+  methods: {},
 
   data() {
-    return {
-      
-    };
+    return {};
   },
-
-  
 };
 </script>
 
 <style></style>
-

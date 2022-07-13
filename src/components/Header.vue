@@ -15,14 +15,17 @@
       </routerLink>
     </template>
     <template #end v-else>
-      <i class="fa-solid fa-gear fa-2x text-white cursor-pointer" @click="$refs.sideBar.openNav()"></i>
+      <i
+        class="fa-solid fa-gear fa-2x text-white cursor-pointer"
+        @click="$refs.sideBar.openNav()"
+      ></i>
       <routerLink class="decoration-none" to="/Signin">
         <Button class="p-button-link" label="Cerrar Sesión" />
       </routerLink>
     </template>
   </Menubar>
 
-  <SideBar ref ="sideBar" />
+  <SideBar ref="sideBar" />
 </template>
 
 <script>
@@ -30,7 +33,7 @@ import SideBar from "./Sidebar.vue";
 export default {
   data() {
     return {
-      items: [{ label: "AE" }],
+      items: [{ label: "AE", to: "/" }],
     };
   },
   props: {

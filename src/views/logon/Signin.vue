@@ -16,8 +16,6 @@
           type="password"
           class="w-100"
           v-model="inputPassword"
-
-          
         />
       </span>
       <span class="vertical-group w-100 my-1">
@@ -25,21 +23,22 @@
         <Button label="Ingresar" @click="signin()" class="w-100" />
         <!-- </router-link> -->
       </span>
-      <span class="vertical-group w-100 my-1 fs-6">
-        <span       
-          >¿No tienes una cuenta?,
-          <router-link to="/Register" class="text-center w-100"
-            >Registrate</router-link
-          ></span
-        >
-
+      <div class="vertical-group centered-group w-100 my-1 fs-6">
         <span
           >¿No recuerda su contraseña?,
           <router-link to="/restorePassword" class="text-center w-100"
             >Restablecer contraseña</router-link
           ></span
         >
-      </span>
+      </div>
+      <div class="vertical-group centered-group w-100 my-1 fs-6">
+        <span
+          >¿No tienes una cuenta?,
+          <router-link to="/Register" class="text-center w-100"
+            >Registrate</router-link
+          ></span
+        >
+      </div>
     </div>
   </div>
   <Footer />
@@ -51,8 +50,6 @@ import Footer from "../../components/Footer.vue";
 
 import { fetchSinToken, fetchConToken } from "../../helpers/fetch";
 
-
-
 export default {
   name: "login",
   data() {
@@ -61,7 +58,6 @@ export default {
   components: {
     Header,
     Footer,
-
   },
 
   methods: {
@@ -89,7 +85,6 @@ export default {
           console.log(err);
         });
     },
-
   },
 
   props: [],
