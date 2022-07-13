@@ -19,8 +19,8 @@
                  <template #subtitle>Ponente: {{eve.speaker}}  </template>
                 
                 <template #footer>
-                    <Button label="Editar" icon="pi pi-pencil"  class="p-button-text" @click="traerdata()"/>
-                    <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="saveProduct"/>
+                    <Button label="Editar" icon="pi pi-pencil"  class="p-button-text" @click="update(eve._id)"/>
+                    <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="remove(eve._id)"/>
                 </template>
             </Card>    
             <template >
@@ -60,7 +60,6 @@ export default {
       this.eventoDialog = true;
       fetchConToken("api/v1/events/public", {}, "GET")
         .then((res) => {
-          console.log(res.data.publicEvents);
          this.evento = res.data.publicEvents
         })
         .catch(() => {
@@ -70,9 +69,41 @@ export default {
             "error"
           );
         });
-
-        
     },
+
+
+    async remove(_id) {
+       if (confirm("Esta seguro de eliminar este evento??")) {
+        const res = await fetchConToken(`api/v1/events/${_id}`,{}, "DELETE")
+        .then((res) => { 
+          console.log("Elimine");
+
+         
+        })
+        .catch(() => {
+          alert(
+            "Ha ocurrido un error",
+            "Ocurrio un error al eliminar  el evento.",
+            "error"
+          );
+        });
+       }
+    },
+
+
+    async update(_id){
+      if (confirm("Esta seguro de editar este evento??")) {
+          console.log("edite")
+          this.evento ={...evento}
+          this.eventoDialog = tue;
+      }
+
+
+
+    },
+
+
+
     hideDialog() {
       this.eventoDialog = false;
       this.submitted = false;
