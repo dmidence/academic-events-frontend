@@ -30,6 +30,13 @@
             >Registrate</router-link
           ></span
         >
+
+        <span
+          >¿No recuerda su contraseña?,
+          <router-link to="/restorePassword" class="text-center w-100"
+            >Restablecer contraseña</router-link
+          ></span
+        >
       </span>
     </div>
   </div>
@@ -39,7 +46,9 @@
 <script>
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
+
 import { fetchSinToken, fetchConToken } from "../../helpers/fetch";
+
 
 
 export default {
@@ -50,6 +59,7 @@ export default {
   components: {
     Header,
     Footer,
+
   },
 
   methods: {
@@ -77,6 +87,7 @@ export default {
           console.log(err);
         });
     },
+
   },
 
   props: [],

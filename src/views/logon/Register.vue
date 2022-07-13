@@ -9,10 +9,12 @@
         <label for="username">Nombre</label>
         <InputText
           id="username"
+
           placeholder="Ej: Ariel"
           type="text"
           class="w-100 p-inputtext-sm"
           v-model="inputName"
+
         />
       </span>
       <span class="vertical-group w-100 my-1">
@@ -56,7 +58,9 @@
       <span class="vertical-group w-100 my-1">
         <Button @click="register()" label="Registrar" class="w-100" />
       </span>
+
       <span class="vertical-group centered-group w-100 my-1 fs-6 text-center">
+
         <span
           >¿Ya tienes una cuenta?,
           <router-link to="/Signin" class="text-center w-100"
@@ -72,8 +76,10 @@
 <script>
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
+
 import { customAlert } from "../../helpers/alerts";
 import { fetchSinToken } from "../../helpers/fetch";
+
 
 export default {
   name: "register",
