@@ -16,6 +16,8 @@
           type="password"
           class="w-100"
           v-model="inputPassword"
+
+          
         />
       </span>
       <span class="vertical-group w-100 my-1">
@@ -24,7 +26,7 @@
         <!-- </router-link> -->
       </span>
       <span class="vertical-group w-100 my-1 fs-6">
-        <span
+        <span       
           >¿No tienes una cuenta?,
           <router-link to="/Register" class="text-center w-100"
             >Registrate</router-link
