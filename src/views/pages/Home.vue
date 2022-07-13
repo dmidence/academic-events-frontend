@@ -1,38 +1,38 @@
 <template>
-<Header :logged="true"/>
- <div class="main-container">
-   <h1>Home</h1>
-   <!-- <Button
-              label="Nuevo Evento"
-              icon="pi pi-plus"
-              class="p-button-success mr-2"
-              @click="$refs.eventModal.openNew()"
-            /> -->
- </div>
+  <Header :logged="true" />
+  <div class="main-container">
+    <h1>Home</h1>
+    <h1>mundillooooooooo</h1>
+       
+  </div>
 
- <!-- Modal ref -->
- <EventModal ref = "eventModal"/>
+  <!-- Modal ref -->
+  <EventModal ref="eventModal" />
 </template>
 
 <script>
-  import Header from '../../components/Header.vue';
-  import EventModal from '../../components/EventModal.vue';
+import Header from "../../components/Header.vue";
+import EventModal from "../../components/EventModal.vue";
+export default {
+  name: "Home",
+  components: {
+    Header,
+    EventModal,
+  },
+  methods: {
 
-  export default {
-    props: [],
-    mounted() {},
-    data() {
-      return {};
-    },
-    methods: {},
-    computed: {},
-    components: {
-      Header,
-      EventModal
-    }
-  };
+   
+  },
+
+  data() {
+    return {
+      
+    };
+  },
+
+  
+};
 </script>
 
-<style>
+<style></style>
 
-</style>

@@ -6,17 +6,22 @@
       <h1 class="my-2">Inicio de Sesión</h1>
       <hr class="w-100" />
       <span class="vertical-group w-100 my-1">
-        <label for="username">Correo</label>
-        <InputText id="username" type="text" class="w-100" v-model="value" />
+        <label for="userEmail">Correo</label>
+        <InputText id="userEmail" type="text" class="w-100" v-model="inputEmail" />
       </span>
       <span class="vertical-group w-100 my-1">
-        <label for="username">Contraseña</label>
-        <InputText id="username" type="text" class="w-100" v-model="value" />
+        <label for="userPassword">Contraseña</label>
+        <InputText
+          id="userPassword"
+          type="password"
+          class="w-100"
+          v-model="inputPassword"
+        />
       </span>
       <span class="vertical-group w-100 my-1">
-        <router-link to="/Home" class="text-center w-100">
-          <Button label="Ingresar" class="w-100" />
-        </router-link>
+        <!-- <router-link to="/Home" class="text-center w-100"> -->
+        <Button label="Ingresar" @click="signin()" class="w-100" />
+        <!-- </router-link> -->
       </span>
       <span class="vertical-group w-100 my-1 fs-6">
         <span
@@ -42,18 +47,51 @@
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
 
+import { fetchSinToken, fetchConToken } from "../../helpers/fetch";
+
+
+
 export default {
-  props: [],
-  mounted() {},
+  name: "login",
   data() {
-    return {};
+    return { inputEmail: "", inputPassword: "" };
   },
-  methods: {},
-  computed: {},
   components: {
     Header,
     Footer,
+
   },
+
+  methods: {
+    signin() {
+      fetchSinToken(
+        "api/v1/sessions",
+        { email: this.inputEmail, password: this.inputPassword },
+        "POST",
+        {}
+      )
+        .then((res) => {
+          console.log(res.data);
+          sessionStorage.setItem("accessToken", JSON.stringify(res.data.accessToken));
+          fetchConToken("api/v1/users/me", {}, "GET")
+            .then((res) => {
+              sessionStorage.setItem("userData", JSON.stringify(res.data));
+              this.$router.push("Home");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          console.log("err");
+          console.log(err);
+        });
+    },
+
+  },
+
+  props: [],
+  mounted() {},
 };
 </script>
 

@@ -1,5 +1,6 @@
-const axios = require('axios');
-let API_URL= "http://localhost:3000/";
+import axios from 'axios';
+
+let API_URL= "http://localhost:3000";
 const fetchSinToken = async (endpoint, data,method, params= {}) => {
     return await axios({
         method: method,
@@ -15,19 +16,20 @@ const fetchSinToken = async (endpoint, data,method, params= {}) => {
 
 const fetchConToken = async (endpoint, data,method) => {
 
-    let userData = sessionStorage.getItem('academiceventstoken');
-
-    let token = JSON.parse(!!userData ? userData :'').token
-
+    let accessToken = sessionStorage.getItem('accessToken');
+    
+    accessToken = JSON.parse(accessToken);
+    let headers = { 
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
+        "Authorization": `Bearer ${accessToken}`
+    };
+   
     return await axios({
         method: method,
         url: `${API_URL}/${endpoint}`,
         data: data,
-        headers: { 
-            "Content-Type": "multipart/form-data;charset=UTF-8" ,
-            
-            "Authorization": `Bearer ${token}`
-        },
+        headers
         // params
     })
     

@@ -9,31 +9,58 @@
         <label for="username">Nombre</label>
         <InputText
           id="username"
+
+          placeholder="Ej: Ariel"
           type="text"
           class="w-100 p-inputtext-sm"
-          v-model="value"
+          v-model="inputName"
+
         />
       </span>
       <span class="vertical-group w-100 my-1">
-        <label for="username">Apellido</label>
-        <InputText id="username" type="text" class="w-100" v-model="value" />
+        <label for="userlastname">Apellido</label>
+        <InputText
+          id="userlastname"
+          placeholder="Ej: Flores"
+          type="text"
+          class="w-100"
+          v-model="inputLastname"
+        />
       </span>
       <span class="vertical-group w-100 my-1">
-        <label for="username">Correo</label>
-        <InputText id="username" type="text" class="w-100" v-model="value" />
+        <label for="useremail">Correo</label>
+        <InputText
+          id="useremail"
+          placeholder="Ej: ejemplo@unah.hn "
+          type="text"
+          class="w-100"
+          v-model="inputEmail"
+        />
       </span>
       <span class="vertical-group w-100 my-1">
-        <label for="username">Contraseña</label>
-        <InputText id="username" type="text" class="w-100" v-model="value" />
+        <label for="userpassword">Contraseña</label>
+        <InputText
+          id="userpassword"
+          type="password"
+          class="w-100"
+          v-model="inputPassword"
+        />
       </span>
       <span class="vertical-group w-100 my-1">
-        <label for="username">Confirmar Contraseña</label>
-        <InputText id="username" type="text" class="w-100" v-model="value" />
+        <label for="userpasswordv">Confirmar Contraseña</label>
+        <InputText
+          id="userpasswordv"
+          type="password"
+          class="w-100"
+          v-model="inputPasswordv"
+        />
       </span>
       <span class="vertical-group w-100 my-1">
-        <Button label="Registrar" class="w-100" />
+        <Button @click="register()" label="Registrar" class="w-100" />
       </span>
-      <span class="vertical-group w-100 my-1 fs-6">
+
+      <span class="vertical-group centered-group w-100 my-1 fs-6 text-center">
+
         <span
           >¿Ya tienes una cuenta?,
           <router-link to="/Signin" class="text-center w-100"
@@ -46,23 +73,73 @@
   <Footer />
 </template>
 
-
 <script>
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
 
+import { customAlert } from "../../helpers/alerts";
+import { fetchSinToken } from "../../helpers/fetch";
+
+
 export default {
-  props: [],
-  mounted() {},
+  name: "register",
   data() {
-    return {};
+    return {
+      inputName: "",
+      inputLastname: "",
+      inputEmail: "",
+      inputPassword: "",
+      inputPasswordv: "",
+    };
   },
-  methods: {},
-  computed: {},
   components: {
     Header,
     Footer,
   },
+
+  methods: {
+    register() {
+      fetchSinToken(
+        "api/v1/users/register",
+        {
+          email: this.inputEmail,
+          firstName: this.inputName,
+          lastName: this.inputLastname,
+          password: this.inputPassword,
+          passwordConfirmation: this.inputPasswordv,
+        },
+        "POST",
+        {}
+      )
+        .then((res) => {
+          console.log(res);
+          customAlert(
+            "Registro Exitoso",
+            "¡Bienvenido, tu usuario ha sido registrado correctamente!",
+            "success"
+          )
+            .then(() => {
+              this.$router.push("Signin");
+            })
+            .catch((err) => {
+              console.log("Ha ocurrido un error al definir la alerta");
+              console.log(err);
+            });
+        })
+        .catch(() => {
+          customAlert(
+            "Ha ocurrido un error",
+            "Ocurrio un error al registrar tu usuario.",
+            "error"
+          );
+        });
+    },
+  },
+
+  props: [],
+  mounted() {},
+
+  computed: {},
 };
 </script>
 
