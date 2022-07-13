@@ -7,7 +7,7 @@
     <a href="javascript:void(0)"  class="closebtn" @click="closeNav()">&times;</a>
     <!-- <a @click="$refs.eventModal.openNew()">Crear Eventos</a>-->
     <Button label="Crear Eventos" icon="pi pi-calendar-plus" class="p-button-outlined" @click="$refs.eventModal.openNew()" style="margin: 7px"/>
-    <Button label="Mis eventos" icon="pi pi-calendar" class="p-button-outlined" @click="$refs.cardEvento.openNew()" style="margin: 7px"/>
+    <Button label="Mis eventos" icon="pi pi-calendar" class="p-button-outlined" @click="$refs.cardEvento.traerdata()" style="margin: 7px"/>
     <a >Section 3</a>
     <a>Section 4</a>
 

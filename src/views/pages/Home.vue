@@ -2,12 +2,8 @@
   <Header :logged="true" />
   <div class="main-container">
     <h1>Home</h1>
-    <!-- <Button
-              label="Nuevo Evento"
-              icon="pi pi-plus"
-              class="p-button-success mr-2"
-              @click="$refs.eventModal.openNew()"
-            /> -->
+    <h1>mundillooooooooo</h1>
+       
   </div>
 
   <!-- Modal ref -->
@@ -19,19 +15,24 @@ import Header from "../../components/Header.vue";
 import EventModal from "../../components/EventModal.vue";
 export default {
   name: "Home",
-
-  props: [],
-
-  data() {
-    return {};
-  },
-  methods: {},
-  computed: {},
   components: {
     Header,
     EventModal,
   },
+  methods: {
+
+   
+  },
+
+  data() {
+    return {
+      
+    };
+  },
+
+  
 };
 </script>
 
 <style></style>
+

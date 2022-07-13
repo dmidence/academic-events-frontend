@@ -22,6 +22,7 @@ import Dialog from 'primevue/dialog';
 import Calendar from 'primevue/calendar';
 import RadioButton from 'primevue/radiobutton';
 import Card from 'primevue/card';
+import Dropdown from 'primevue/dropdown';
 
 
 
@@ -44,6 +45,7 @@ app.component('Dialog', Dialog);
 app.component('Calendar', Calendar);
 app.component('RadioButton', RadioButton);
 app.component('Card', Card);
+app.component('Dropdown', Dropdown);
 
 
 app.mount('#app');
