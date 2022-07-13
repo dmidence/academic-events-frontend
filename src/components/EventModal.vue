@@ -122,7 +122,6 @@ import { fetchConToken } from "../helpers/fetch";
 
 export default {
   props: [],
-
   mounted() {},
 
   name: "registerEvent",
@@ -133,7 +132,6 @@ export default {
         { name: 'Virtual', optionValue: 'Virtual' },
         { name: 'Presencial', optionValue: 'Presencial' },
       ],
-
       selectedType: null,
       Tipos: [
         { name: 'Publico', optionValue: 'Publico' },
@@ -155,7 +153,6 @@ export default {
       inputDateFin: "",
     };
   },
-
   methods: {
     openNew() {
       this.evento = {};
@@ -166,7 +163,6 @@ export default {
       this.eventoDialog = false;
       this.submitted = false;
     },
-
     registerEvent() {
       this.submitted = true;
       let event = {
@@ -213,4 +209,6 @@ export default {
 };
 </script>
 
+
 <style></style>
+
