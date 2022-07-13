@@ -119,9 +119,11 @@
 import { parse } from "@babel/parser";
 import { customAlert } from "../helpers/alerts";
 import { fetchConToken } from "../helpers/fetch";
+
 export default {
   props: [],
   mounted() {},
+
   name: "registerEvent",
   data() {
     return {
@@ -207,4 +209,6 @@ export default {
 };
 </script>
 
+
 <style></style>
+
