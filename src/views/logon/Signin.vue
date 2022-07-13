@@ -1,7 +1,7 @@
 <template>
   <Header :logged="false" />
   <div class="main-container logon-bg">
-    <div class="logon-container">
+    <div class="logon-container text-center">
       <i class="fa-solid fa-graduation-cap fa-4x brand-max-widt-icon"></i>
       <h1 class="my-2">Inicio de Sesión</h1>
       <hr class="w-100" />
@@ -25,17 +25,22 @@
             >Registrate</router-link
           ></span
         >
+
+        <span
+          >¿No recuerda su contraseña?,
+          <router-link to="/restorePassword" class="text-center w-100"
+            >Restablecer contraseña</router-link
+          ></span
+        >
       </span>
     </div>
   </div>
   <Footer />
-
 </template>
 
 <script>
 import Header from "../../components/Header.vue";
-import Footer from '../../components/Footer.vue';
-
+import Footer from "../../components/Footer.vue";
 
 export default {
   props: [],
@@ -47,7 +52,7 @@ export default {
   computed: {},
   components: {
     Header,
-    Footer
+    Footer,
   },
 };
 </script>
