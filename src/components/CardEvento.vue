@@ -5,7 +5,7 @@
     header="Eventos Disponibles"
     :modal="true"
   >
-    <div class="p-fluid">
+    <div class="p-flu">
       <Card
         style="width: 45%; padding: 1rem; margin: 1rem"
         v-for="eve in evento"
@@ -33,7 +33,10 @@
             label="Eliminar"
             icon="pi pi-times-circle"
             class="p-button-text"
-            @click="remove(eve._id)"
+            @click="
+              remove(eve._id);
+              hideDialog;
+            "
           />
         </template>
       </Card>
@@ -91,6 +94,7 @@ export default {
         const res = await fetchConToken(`api/v1/events/${_id}`, {}, "DELETE")
           .then((res) => {
             console.log("Elimine");
+            this.hideDialog();
           })
           .catch(() => {
             alert(
