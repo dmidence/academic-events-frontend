@@ -236,6 +236,13 @@ a {
   cursor: pointer;
 }
 
+//Card
+.p-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 @media screen and (max-width: 962px) {
   .logon-container {
     top: 0;
