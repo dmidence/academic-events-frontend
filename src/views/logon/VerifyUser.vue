@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <h1>Verificación de Usuario</h1>
 </template>
 
