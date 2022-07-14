@@ -5,9 +5,19 @@
   padding: 0;
 }
 
+.controls{
+  padding: 1rem;
+  position: relative;
+  button{
+    position: absolute;
+    right: 0;
+  }
+}
+
 html {
+  overflow-x: hidden;
   box-sizing: border-box;
-  font-size: 90%;
+  font-size: 80%;
 }
 .fs-1 {
   font-size: calc(1.375rem + 1.5vw);
@@ -163,7 +173,9 @@ a {
 
 .flex-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+
 }
 
 .text-center {
@@ -190,23 +202,16 @@ a {
 }
 
 .main-container.logon-bg {
-  background: linear-gradient(
-      0deg,
-      rgba(0, 132, 255, 0.3),
-      rgba(0, 153, 255, 0.3)
-    ),
+  background: linear-gradient(0deg, rgba(6, 30, 49,0.3), rgba(16, 68, 110, 0.3)),
     url("@../../assets/img/4.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
 .logon-container {
-  width: 25%;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, 0);
+  width: 30%;
   padding: 1.6rem;
-  position: absolute;
   display: flex;
+  margin: auto;
   flex-wrap: wrap;
   justify-content: center;
   border: 1px solid gray;
@@ -241,6 +246,10 @@ a {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.color-detail{
+  color: $detail;
 }
 
 @media screen and (max-width: 962px) {

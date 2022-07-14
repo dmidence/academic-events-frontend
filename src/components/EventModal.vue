@@ -219,4 +219,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  
+  ::v-deep(.p-dialog-titlebar) {
+    background-color: red;
+  }
+</style>

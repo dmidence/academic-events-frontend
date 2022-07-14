@@ -1,6 +1,6 @@
 <template>
     <footer class="main-footer">
-        Footer
+        Custom Footer
     </footer>
 </template>
 

@@ -1,26 +1,29 @@
 <template>
   <div id="mySidepanel" ref="mySidepanel" class="sidepanel">
     <div class="centered">
-      <i class="fa-solid fa-graduation-cap fa-4x text-white"></i>
+      <i class="fa-solid fa-graduation-cap fa-4x text-white active-icon" @click="closeNav()"></i>
     </div>
 
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
     <!-- <a @click="$refs.eventModal.openNew()">Crear Eventos</a>-->
-    <div class="d-grid gap-2 d-md-block">
+    <div class="d-grid gap-2 d-md-block optionsPanel" ref="optionsPanel">
       <Button
         label="Crear Eventos"
         icon="pi pi-calendar-plus"
-        class="p-button-outlined"
+        class="fixed-button"
         @click="$refs.eventModal.openNew()"
         style="margin: 7px"
       />
       <Button
         label="Mis eventos"
         icon="pi pi-calendar"
-        class="p-button-outlined"
+        class="fixed-button"
         @click="$refs.cardEvento.traerdata()"
         style="margin: 7px"
       />
+      <routerLink class="decoration-none p-0 m-0" to="/Signin">
+        <i class="fa fa-sign-out fa-2x p-0 m-0" aria-hidden="true"></i>
+      </routerLink>
       <!-- <a >Section 3</a>
     <a>Section 4</a> -->
 
@@ -50,6 +53,7 @@ export default {
     openNav() {
       if (this.$refs.mySidepanel.style.width != "250px") {
         this.$refs.mySidepanel.style.width = "250px";
+
       } else {
         this.$refs.mySidepanel.style.width = "0";
       }
@@ -70,6 +74,32 @@ export default {
 <style lang="scss" scoped>
 @import "../colors.scss";
 
+.active-icon{
+  &:hover{
+    color:$primary !important;
+  }
+}
+
+.optionsPanel{
+  transition: .1s all;
+  display: flex;
+  flex-direction: column;
+}
+.fixed-button{
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  transition: .1s all;
+  &:hover{
+    color:$primary !important;
+    transform: scale(1.02);
+    background-color: transparent !important;
+  }
+  
+}
+
+
+
 .sidepanel {
   height: 100%;
   width: 0;
@@ -77,11 +107,12 @@ export default {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: $secondary;
+  background-color: $detail;
   overflow-x: hidden;
   padding-top: 160px;
   transition: 0.5s;
   text-align: center;
+  transition: .1s all;
   a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
