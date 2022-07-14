@@ -180,6 +180,16 @@ export default {
       fetchConToken("api/v1/events", event, "POST", {})
         .then((res) => {
           console.log(res);
+          (this.inputTitle = ""),
+            (this.inputDescription = ""),
+            (this.inputModalidad = ""),
+            (this.inputType = ""),
+            (this.inputCategory = ""),
+            (this.inputPonente = ""),
+            (this.inputParticipants = null),
+            (this.inputDate = ""),
+            (this.inputDateFin = "");
+
           this.hideDialog();
           customAlert("Registro de Evento", "¡Evento creado correctamente!", "success")
             .then(() => {})
@@ -209,6 +219,4 @@ export default {
 };
 </script>
 
-
 <style></style>
-
