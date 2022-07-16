@@ -74,7 +74,19 @@ export default {
           fetchConToken("api/v1/users/me", {}, "GET")
             .then((res) => {
               sessionStorage.setItem("userData", JSON.stringify(res.data));
-              this.$router.push("Home");
+              console.log(res.data);
+              let role;
+              !!(res.data.roles && res.data.roles.length > 0 && res.data.roles[0].name)
+                ? (role = res.data.roles[0].name)
+                : (role = "None");
+              switch (role) {
+                case "user":
+                  this.$router.push("Home");
+                  break;
+                default:
+                  this.$router.push("Page404");
+                  break;
+              }
             })
             .catch((err) => {
               console.log(err);

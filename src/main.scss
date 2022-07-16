@@ -5,10 +5,10 @@
   padding: 0;
 }
 
-.controls{
+.controls {
   padding: 1rem;
   position: relative;
-  button{
+  button {
     position: absolute;
     right: 0;
   }
@@ -17,7 +17,7 @@
 html {
   overflow-x: hidden;
   box-sizing: border-box;
-  font-size: 80%;
+  // font-size: 90%;
 }
 .fs-1 {
   font-size: calc(1.375rem + 1.5vw);
@@ -175,7 +175,6 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 
 .text-center {
@@ -202,7 +201,11 @@ a {
 }
 
 .main-container.logon-bg {
-  background: linear-gradient(0deg, rgba(6, 30, 49,0.3), rgba(16, 68, 110, 0.3)),
+  background: linear-gradient(
+      0deg,
+      rgba(6, 30, 49, 0.3),
+      rgba(16, 68, 110, 0.3)
+    ),
     url("@../../assets/img/4.jpg");
   background-size: cover;
   background-attachment: fixed;
@@ -248,7 +251,7 @@ a {
   width: 100%;
 }
 
-.color-detail{
+.color-detail {
   color: $detail;
 }
 

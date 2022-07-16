@@ -1,7 +1,10 @@
 <template>
   <div id="mySidepanel" ref="mySidepanel" class="sidepanel">
     <div class="centered">
-      <i class="fa-solid fa-graduation-cap fa-4x text-white active-icon" @click="closeNav()"></i>
+      <i
+        class="fa-solid fa-graduation-cap fa-4x text-white active-icon"
+        @click="closeNav()"
+      ></i>
     </div>
 
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
@@ -51,9 +54,8 @@ export default {
   },
   methods: {
     openNav() {
-      if (this.$refs.mySidepanel.style.width != "250px") {
-        this.$refs.mySidepanel.style.width = "250px";
-
+      if (this.$refs.mySidepanel.style.width != "20vw") {
+        this.$refs.mySidepanel.style.width = "20vw";
       } else {
         this.$refs.mySidepanel.style.width = "0";
       }
@@ -74,31 +76,28 @@ export default {
 <style lang="scss" scoped>
 @import "../colors.scss";
 
-.active-icon{
-  &:hover{
-    color:$primary !important;
+.active-icon {
+  &:hover {
+    color: $primary !important;
   }
 }
 
-.optionsPanel{
-  transition: .1s all;
+.optionsPanel {
+  transition: 0.1s all;
   display: flex;
   flex-direction: column;
 }
-.fixed-button{
+.fixed-button {
   font-weight: bold;
   background-color: transparent;
   border: none;
-  transition: .1s all;
-  &:hover{
-    color:$primary !important;
+  transition: 0.1s all;
+  &:hover {
+    color: $primary !important;
     transform: scale(1.02);
     background-color: transparent !important;
   }
-  
 }
-
-
 
 .sidepanel {
   height: 100%;
@@ -112,7 +111,7 @@ export default {
   padding-top: 160px;
   transition: 0.5s;
   text-align: center;
-  transition: .1s all;
+  transition: 0.1s all;
   a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
