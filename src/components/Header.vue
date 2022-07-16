@@ -19,8 +19,11 @@
         class="fa-solid fa-gear fa-2x text-white cursor-pointer"
         @click="$refs.sideBar.openNav()"
       ></i>
-      <routerLink class="decoration-none" to="/Signin">
-        <Button class="p-button-link" label="Cerrar Sesión" />
+      <routerLink class="decoration-none px-3" to="/Signin">
+        <i
+          class="fa fa-sign-out fa-2x  cursor-pointer color-detail"
+          @click="$refs.sideBar.openNav()"
+        ></i>
       </routerLink>
     </template>
   </Menubar>
@@ -29,12 +32,12 @@
 </template>
 
 <script>
-import SideBar from "./Sidebar.vue";
+import SideBar from './Sidebar.vue'
 export default {
   data() {
     return {
-      items: [{ label: "AE", to: "/" }],
-    };
+      items: [{ label: 'AE', to: '/' }],
+    }
   },
   props: {
     logged: Boolean,
@@ -42,16 +45,21 @@ export default {
   components: {
     SideBar,
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
+@import '../colors';
+
+.p-button-link.button-logout {
+  font-weight: bold;
+}
 .custom-header {
   position: absolute;
   top: 0;
   height: 10vh;
   width: 100%;
-  background-color: #061e31;
+  background-color: $secondary;
   -webkit-box-shadow: 0px 12px 27px -11px #000000;
   box-shadow: 0px 12px 27px -11px #000000;
   border: none;
