@@ -29,8 +29,11 @@ import "bootstrap/dist/css/bootstrap.css";
 
 //APP ISNTa
 const app = createApp(App);
+import "bootstrap/dist/js/bootstrap.js";
+import store from "./store";
 
 //CONFS
+app.use(store);
 app.use(router);
 app.use(PrimeVue);
 app.use(ToastService);
@@ -48,5 +51,3 @@ app.component("Card", Card);
 app.component("Dropdown", Dropdown);
 
 app.mount("#app");
-
-import "bootstrap/dist/js/bootstrap.js";

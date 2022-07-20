@@ -1,3 +1,5 @@
+<script src="./header"></script>
+
 <template>
   <Menubar :model="items" class="custom-header">
     <template #start>
@@ -6,7 +8,7 @@
         <i class="fa-solid fa-graduation-cap fa-4x text-white"></i>
       </routerLink>
     </template>
-    <template #end v-if="!logged">
+    <template #end v-if="!isLoggedIn">
       <routerLink class="decoration-none" to="/Register">
         <Button class="mx-2" label="Registrarse" />
       </routerLink>
@@ -16,42 +18,38 @@
     </template>
     <template #end v-else>
       <i
-        class="fa-solid fa-gear fa-2x text-white cursor-pointer"
+        class="fa-solid fa-gear fa-2x text-white mr-4 cursor-pointer"
         @click="$refs.sideBar.openNav()"
-      ></i>
-      <routerLink class="decoration-none" to="/Signin">
-        <Button class="p-button-link" label="Cerrar Sesión" />
-      </routerLink>
+      >
+       &nbsp;
+      </i>
+        
+        <i
+          class="fa fa-sign-out fa-2x   cursor-pointer color-detail"
+          @click="click()"
+        >
+         &nbsp;
+        </i>
     </template>
   </Menubar>
 
   <SideBar ref="sideBar" />
 </template>
 
-<script>
-import SideBar from "./Sidebar.vue";
-export default {
-  data() {
-    return {
-      items: [{ label: "AE", to: "/" }],
-    };
-  },
-  props: {
-    logged: Boolean,
-  },
-  components: {
-    SideBar,
-  },
-};
-</script>
+
 
 <style lang="scss" scoped>
+@import '../../colors';
+
+.p-button-link.button-logout {
+  font-weight: bold;
+}
 .custom-header {
   position: absolute;
   top: 0;
   height: 10vh;
   width: 100%;
-  background-color: #061e31;
+  background-color: $secondary;
   -webkit-box-shadow: 0px 12px 27px -11px #000000;
   box-shadow: 0px 12px 27px -11px #000000;
   border: none;

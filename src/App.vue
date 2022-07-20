@@ -1,9 +1,17 @@
 <template>
   <router-view class="main-container"/>
+  <Toast/>
 </template>
 
-<script setup>
-
+<script>
+import { defineComponent} from "vue";
+import Toast from "primevue/toast";
+export default defineComponent({
+  name: "layout",
+  components:{
+    Toast
+  },
+});
 </script>
 
 <style>
