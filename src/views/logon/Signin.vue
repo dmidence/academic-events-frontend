@@ -80,8 +80,11 @@ export default {
                 ? (role = res.data.roles[0].name)
                 : (role = "Unidentified");
               switch (role) {
-                case "user":
+                case "admin":
                   this.$router.push("Home");
+                  break;
+                case "user":
+                  this.$router.push("ViewsUser");
                   break;
                 default:
                   this.$router.push("Page404");
