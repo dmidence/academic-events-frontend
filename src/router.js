@@ -6,6 +6,7 @@ import Signin from "./views/logon/Signin.vue";
 import Register from "./views/logon/Register.vue";
 import checkAccount from "./views/logon/checkAccount.vue";
 import restorePassword from "./views/logon/restorePassword.vue";
+import ViewsUser from "./views/pages/ViewsUser.vue";
 import Page404 from "./views/shared/Page404.vue";
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
   { path: "/register", component: Register },
   { path: "/checkAccount", component: checkAccount },
   { path: "/restorePassword", component: restorePassword },
+  { path: "/viewsUser", component: ViewsUser },
   { path: "/Page404", component: Page404 },
 ];
 
