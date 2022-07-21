@@ -37,13 +37,27 @@
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userpassword">Contraseña</label>
-        <InputText
+        <Password
+          v-model="inputPassword"
           id="userpassword"
           placeholder="Contraseña"
-          type="password"
           class="w-100"
-          v-model="inputPassword"
-        />
+          type="password"
+        >
+          <template #header>
+            <h6>Elige una Contraseña</h6>
+          </template>
+          <template #footer>
+            <Divider />
+            <p class="p-mt-2">Sugerencias</p>
+            <ul class="p-pl-2 p-ml-2 p-mt-0" style="line-height: 1.5">
+              <li>Al menos una minúscula</li>
+              <li>Al menos una mayúscula</li>
+              <li>Al menos un número</li>
+              <li>Mínimo 8 caracteres</li>
+            </ul>
+          </template>
+        </Password>
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userpasswordv">Confirmar Contraseña</label>
@@ -62,10 +76,8 @@
       <span class="vertical-group centered-group w-100 my-1 fs-6 text-center">
         <span
           >¿Ya tienes una cuenta?,
-          <router-link to="/Signin" class="text-center w-100"
-            >Inicia Sesión</router-link
-          ></span
-        >
+          <router-link to="/Signin" class="text-center w-100">Inicia Sesión</router-link>
+        </span>
       </span>
     </div>
   </div>
@@ -141,4 +153,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+::v-deep(.p-password input) {
+  width: 18.5rem;
+}
+</style>
