@@ -23,7 +23,7 @@ import Calendar from "primevue/calendar";
 import RadioButton from "primevue/radiobutton";
 import Card from "primevue/card";
 import Dropdown from "primevue/dropdown";
-
+import Password from "primevue/password";
 
 //### Bootstrap
 import "bootstrap/dist/css/bootstrap.css";
@@ -47,7 +47,7 @@ app.component("Calendar", Calendar);
 app.component("RadioButton", RadioButton);
 app.component("Card", Card);
 app.component("Dropdown", Dropdown);
-
+app.component("Password", Password);
 app.mount("#app");
 
 import "bootstrap/dist/js/bootstrap.js";
