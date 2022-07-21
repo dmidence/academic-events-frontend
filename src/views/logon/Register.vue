@@ -66,6 +66,12 @@
             >Inicia Sesión</router-link
           ></span
         >
+        <span
+          >¿Ya tienes una cuenta?,
+          <router-link to="/Signin" class="text-center w-100"
+            >Inicia Sesión</router-link
+          ></span
+        >
       </span>
     </div>
   </div>

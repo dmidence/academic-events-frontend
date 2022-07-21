@@ -78,7 +78,7 @@ export default {
               let role;
               !!(res.data.roles && res.data.roles.length > 0 && res.data.roles[0].name)
                 ? (role = res.data.roles[0].name)
-                : (role = "None");
+                : (role = "Unidentified");
               switch (role) {
                 case "user":
                   this.$router.push("Home");
