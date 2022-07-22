@@ -1,4 +1,4 @@
-<template>
+<template>k
   <Header />
   <div class="main-container logon-bg">
     <div class="logon-container text-center">
@@ -13,7 +13,7 @@
 
       <span class="vertical-group w-100 my-1">
         <!-- <router-link to="/Home" class="text-center w-100"> -->
-        <Button label="Enviar" class="w-100" @click="verify()" />
+        <Button label="Enviar" class="w-100" @click="reset()" />
         <!-- </router-link> -->
       </span>
       <span class="vertical-group w-100 my-1 fs-6">
@@ -41,7 +41,7 @@ export default {
   },
 
   methods: {
-    verify() {
+    reset() {
       fetchSinToken("api/v1/users/forgotpassword", { email: this.inputEmail }, "POST", {})
         .then((res) => {
           console.log(res.data);
