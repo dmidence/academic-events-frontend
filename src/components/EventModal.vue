@@ -74,7 +74,7 @@ import { fetchConToken } from "../helpers/fetch";
 
 export default {
   props: [],
-  mounted() { },
+
 
   name: "registerEvent",
   data() {
@@ -175,8 +175,8 @@ export default {
   },
   computed: {},
   components: {},
-  mounted() {
-    this.getCategory();
+  created() {
+    /* this.getCategory(); */
   },
 };
 </script>

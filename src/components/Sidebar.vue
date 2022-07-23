@@ -1,29 +1,16 @@
 <template>
   <div id="mySidepanel" ref="mySidepanel" class="sidepanel">
     <div class="centered">
-      <i
-        class="fa-solid fa-graduation-cap fa-4x text-white active-icon"
-        @click="closeNav()"
-      ></i>
+      <i class="fa-solid fa-graduation-cap fa-4x text-white active-icon" @click="closeNav()"></i>
     </div>
 
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
     <!-- <a @click="$refs.eventModal.openNew()">Crear Eventos</a>-->
     <div class="d-grid gap-2 d-md-block optionsPanel" ref="optionsPanel">
-      <Button
-        label="Crear Eventos"
-        icon="pi pi-calendar-plus"
-        class="fixed-button"
-        @click="$refs.eventModal.openNew()"
-        style="margin: 7px"
-      />
-      <Button
-        label="Mis eventos"
-        icon="pi pi-calendar"
-        class="fixed-button"
-        @click="$refs.cardEvento.traerdata()"
-        style="margin: 7px"
-      />
+      <Button label="Crear Eventos" icon="pi pi-calendar-plus" class="fixed-button"
+        @click="$refs.eventModal.openNew(), $refs.eventModal.getCategory()" style="margin: 7px" />
+      <Button label="Mis eventos" icon="pi pi-calendar" class="fixed-button" @click="$refs.cardEvento.traerdata()"
+        style="margin: 7px" />
       <routerLink class="decoration-none p-0 m-0" to="/Signin">
         <i class="fa fa-sign-out fa-2x p-0 m-0" aria-hidden="true"></i>
       </routerLink>
@@ -48,7 +35,7 @@ import CardEvento from "./CardEvento.vue";
 
 export default {
   props: [],
-  mounted() {},
+  mounted() { },
   data() {
     return {};
   },
@@ -78,7 +65,7 @@ export default {
 
 .active-icon {
   &:hover {
-    color: $primary !important;
+    color: $primary  !important;
   }
 }
 
@@ -87,13 +74,15 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .fixed-button {
   font-weight: bold;
   background-color: transparent;
   border: none;
   transition: 0.1s all;
+
   &:hover {
-    color: $primary !important;
+    color: $primary  !important;
     transform: scale(1.02);
     background-color: transparent !important;
   }
@@ -112,6 +101,7 @@ export default {
   transition: 0.5s;
   text-align: center;
   transition: 0.1s all;
+
   a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -132,6 +122,7 @@ i:hover {
   color: $primary;
   cursor: pointer;
 }
+
 .sidepanel {
   .centered {
     width: 100%;
