@@ -8,7 +8,10 @@ const fetchSinToken = async (endpoint, data, method, params = {}) => {
     method: method,
     url: `${API_URL}/${endpoint}`,
     data: data,
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
     params,
   });
 };
