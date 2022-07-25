@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // let API_URL = "http://localhost:3000";
-let API_URL = "http://academic-events-api-production.up.railway.app";
+let API_URL = "https://eventsacad.works/";
 
 const fetchSinToken = async (endpoint, data, method, params = {}) => {
   return await axios({
