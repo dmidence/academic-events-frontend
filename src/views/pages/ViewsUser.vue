@@ -2,9 +2,9 @@
 
   <Header :logged="true" />
   <div class="main-container">
-    <div class="controls w-100 m-0 p-0">
+    <!-- <div class="controls w-100 m-0 p-0">
       <Button icon="pi pi-calendar" label="Eventos Publicos" @click="eventpublic()" />
-    </div>
+    </div> -->
     <Button icon="pi pi-calendar" label="Eventos Privados" @click="eventprivate()" />
 
     <div class="main-container flex-container pt-2 px-4">
@@ -76,6 +76,7 @@ export default {
   components: {
     Header,
   },
+
   methods: {
     eventpublic() {
       fetchConToken("api/v1/events/public", {}, "GET")
@@ -124,6 +125,9 @@ export default {
     }
 
 
+  },
+  mounted() {
+    this.eventpublic();
   },
 
   data() {
