@@ -1,18 +1,20 @@
 <template>
   <Header :logged="true" />
   <div class="main-container">
-    <!-- <div class="controls w-100 m-0 p-0">
-      <Button icon="pi pi-calendar" label="Eventos Publicos" @click="eventpublic()" />
-    </div> -->
+    <div class="controls w-100 m-0 p-0">
+      <Button icon="pi pi-calendar" label="Subscripciones" @click="$refs.EventMe.getEventMe()" />
+    </div>
     <Button icon="pi pi-calendar" label="Eventos Privados" @click="eventprivate()" />
 
     <div class="main-container flex-container pt-2 px-4">
+
       <Card
         class="w-30"
         v-for="eve in evento"
         :key="eve._id"
         style="padding: 1rem; margin-top: 15px"
       >
+
         <template #header>
           <img
             src="https://umad.edu.mx/wp-content/uploads/2018/09/ingenieri%CC%81a-de-software.jpg"
@@ -23,62 +25,51 @@
         <template #title> Evento: {{ eve.title }} </template>
         <template #content> Ponente: {{ eve.speaker }} </template>
         <template #footer>
+
           <Button
             label="Suscribirse"
             icon="pi pi-pencil"
             class="p-button-text"
             @click="subscribe(eve._id)"
           />
+
         </template>
       </Card>
     </div>
 
-    <Dialog
-      v-model:visible="eventoDialog"
-      :style="{ width: '800px', align: center }"
-      header="Eventos Privados"
-      :modal="true"
-    >
+    <Dialog v-model:visible="eventoDialog" :style="{ width: '800px', align: center }" header="Eventos Privados"
+      :modal="true">
       <div class="p-flu">
-        <Card
-          style="width: 45%; padding: 1rem; margin: 1rem"
-          v-for="privateEve in eventoprivado"
-          :key="privateEve._id"
-        >
+        <Card style="width: 45%; padding: 1rem; margin: 1rem" v-for="privateEve in eventoprivado" :key="privateEve._id">
           <template #header>
-            <img
-              src="https://umad.edu.mx/wp-content/uploads/2018/09/ingenieri%CC%81a-de-software.jpg"
-              style="height: 150px"
-              icon="pi pi-pencil"
-            />
+            <img src="https://umad.edu.mx/wp-content/uploads/2018/09/ingenieri%CC%81a-de-software.jpg"
+              style="height: 150px" icon="pi pi-pencil" />
           </template>
           <template #title class="content"> Evento: {{ privateEve.title }} </template>
 
           <template #subtitle>Ponente: {{ privateEve.speaker }} </template>
 
           <template #footer>
-            <Button
-              label="Suscribirse"
-              icon="pi pi-pencil"
-              class="p-button-text"
-              @click="subscribe(privateEve._id)"
-            />
+
+            <Button label="Suscribirse" icon="pi pi-pencil" class="p-button-text" @click="subscribe(privateEve._id)" />
+
           </template>
         </Card>
       </div>
     </Dialog>
   </div>
+  <EventMe ref="EventMe" />
 </template>
 
 <script>
 import Header from "../../components/Header.vue";
 import { customAlert } from "../../helpers/alerts.js";
 import { fetchConToken } from "../../helpers/fetch.js";
-
+import EventMe from '../../components/EventMe.vue'
 export default {
   name: "ViewsUser",
   components: {
-    Header,
+    Header, EventMe,
   },
 
   methods: {
