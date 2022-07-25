@@ -1,4 +1,5 @@
 <template>
+
   <Header :logged="true" />
   <div class="main-container">
     <div class="controls w-100 m-0 p-0">
@@ -13,17 +14,17 @@
         :key="eve._id"
         style="padding: 1rem; margin-top: 15px"
       >
+
         <template #header>
-          <img
-            src="https://umad.edu.mx/wp-content/uploads/2018/09/ingenieri%CC%81a-de-software.jpg"
-            style="height: 150px"
-            icon="pi pi-pencil"
-          />
+          <img src="https://umad.edu.mx/wp-content/uploads/2018/09/ingenieri%CC%81a-de-software.jpg"
+            style="height: 150px" icon="pi pi-pencil" />
         </template>
         <template #title> Evento: {{ eve.title }} </template>
         <template #content> Ponente: {{ eve.speaker }} </template>
         <template #footer>
-          <Button icon="pi pi-check" label="Suscribirse" />
+
+          <Button label="Suscribirse" icon="pi pi-pencil" class="p-button-text" @click="subscribe(privateEve._id)" />
+
         </template>
       </Card>
     </div>
@@ -104,6 +105,25 @@ export default {
           );
         });
     },
+
+    async subscribe(_id) {
+      if (confirm("Esta seguro de suscribirse a este evento??")) {
+        const res = await fetchConToken(`api/v1/events/subscribed/${_id}`, {}, "POST")
+          .then((res) => {
+            console.log("Se sucribio al evento");
+            console.log(_id)
+          })
+          .catch(() => {
+            alert(
+              "Ha ocurrido un error",
+              "Ocurrio un error al suscribirse al evento  el evento.",
+              "error"
+            );
+          });
+      }
+    }
+
+
   },
 
   data() {

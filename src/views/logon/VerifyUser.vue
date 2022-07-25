@@ -4,6 +4,7 @@
     <div class="logon-container text-center">
       <i class="fa-solid fa-graduation-cap fa-3x brand-max-widt-icon"></i>
       <h2 class="my-2">Verificar Usuario</h2>
+      <h4>Haz click para terminar de verificar tu Usuario</h4>
       <hr class="w-100" />
       <span class="vertical-group w-100 my-1">
         <Button label="Verificar" class="w-100" @click="verify()" />
