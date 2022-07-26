@@ -3,6 +3,7 @@
 
   <div class="main-container flex-container pt-2 px-4">
     <div class="controls w-100 m-0 p-0">
+
       <Button icon="pi pi-check" label="Crear Evento" @click="$refs.eventModal.openNew()" />
     </div>
     <div class="controls w-100 mt-7 p-0">
@@ -31,11 +32,14 @@
         <img :src="privateEve.image.secureUrl" alt="no funciono" />
       </template>
       <template #title class="content">Evento: {{ privateEve.title }}
+
       </template>
       <template #subtitle>Ponente: {{ privateEve.speaker }} </template>
       <template #footer>
+
         <Button label="Editar" icon="pi pi-pencil" class="p-button-text" @click="update(privateEve._id)" />
         <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="remove(privateEve._id)" />
+
       </template>
     </Card>
   </div>
@@ -48,6 +52,7 @@
 <script>
 import Header from "../../components/Header.vue";
 import EventModal from "../../components/EventModal.vue";
+
 import EventOwn from "../../components/EventOwn.vue";
 import { fetchConToken } from "../../helpers/fetch.js";
 
@@ -63,11 +68,13 @@ export default {
     this.traerdata();
     this.eventprivate();
   },
+
   components: {
     Header,
     EventModal,
     EventOwn,
   },
+
   methods: {
     traerdata() {
       fetchConToken("api/v1/events/public", {}, "GET")
@@ -120,6 +127,7 @@ export default {
         this.eventoDialog = tue;
       }
     },
+
   },
 };
 </script>
