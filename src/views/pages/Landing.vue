@@ -11,17 +11,17 @@
           impartidos de manerra virtual con diversas categorias del conocimiento
           y que estaran adscritos a tu institucion de estudio, dichos eventos
           seran impartidos por profesionales de distinta areas del conocimiento,
-          esperando que dicha experiencia de aprendizaje sea la mejor.
+          esperamos que dicha experiencia de aprendizaje sea la mejor.
         </p>
         <p class="parrafo">
           Nuestra labor va mas alla de la enseñanza ordinaria y nos proponemos
           centramos en el fortalecimiento y la facilitación del aprendizaje en
           linea con ideas innovadoras que permitan a las nuevas generaciones de
-          estudiantes la busqueda permanente del aprendizaje de una nueva manera,
-          mas sencilla y mas expedita, utilizando el poder de las tecnoligias de
+          estudiantes la busqueda permanente del aprendizaje, con una nueva manera
+          mas sencilla y mas expedita de recibir informacion, utilizando el poder de las tecnoligias de
           la información.
         </p>
-        <a href="" class="boton" style="text-decoration: none">Suscribete</a>
+        <a href="http://localhost:8080/Register" class="boton" style="text-decoration: blink" squared variant="info">Suscribete</a>
       </div>
     </section>
     <section class="galeria">
@@ -41,23 +41,23 @@
     </section>
     <section class="miembros">
       <div class="contenedor">
-        <h2 class="sobre-nosotros">Nuestro Equipo</h2>
-        <h3 class="slogan">Conoce nuestro equipo de trabajo</h3>
+        <h3 class="sobre-nosotros">NUESTROS SOCIOS</h3>
+        <h3 class="slogan">Conoce algunas instituciones educativas con las que hemos trabajado</h3>
         <div class="cards">
           <div class="card card-centered">
-            <img src="../../assets/img/logo.png" alt="" />
-            <h4>ADesign</h4>
-            <p>Lorem Ipsum Dolorum</p>
+            <img src="../../assets/img/unah.png" alt="" />
+            <h4>UNAH</h4>
+            <p>Universidad Nacional Autonoma de Honduras</p>
           </div>
           <div class="card card-centered">
-            <img src="../../assets/img/logo.png" alt="" />
-            <h4>ADesign</h4>
-            <p>Lorem Ipsum Dolorum</p>
+            <img src="../../assets/img/unicah.jpg" alt="" />
+            <h4>UNICAH</h4>
+            <p>Universidad Católica de Honduras Sagrado Corazón de Jesús</p>
           </div>
           <div class="card card-centered">
-            <img src="../../assets/img/logo.png" alt="" />
-            <h4>ADesign</h4>
-            <p>Lorem Ipsum Dolorum</p>
+            <img src="../../assets/img/unitec.png" alt="" />
+            <h4>UNITEC</h4>
+            <p>Universidad Tecnologica Centroamericana</p>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
     <footer>
       <div class="contenedor">
         <h2 class="titulo-footer">Contactanos</h2>
-        <h2 class="subtitulo-footer">Nuestras redes sociales</h2>
+        <h2 class="subtitulo-footer">Siguenos en nuestras redes sociales</h2>
         <div class="footer">
           
         </div>
@@ -309,9 +309,9 @@ main {
 }
 
 footer {
-  background-color: rgb(69, 123, 141);
+  background-color: rgb(40, 59, 66);
   background-size: 50%;
-  height: 150px;
+  height: 145px;
 }
 
 .titulo-footer,

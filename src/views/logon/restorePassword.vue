@@ -1,5 +1,4 @@
 <template>
-  k
   <Header />
   <div class="main-container logon-bg">
     <div class="logon-container text-center">

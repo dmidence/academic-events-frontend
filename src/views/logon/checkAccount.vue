@@ -2,10 +2,9 @@
   <Header />
   <div class="main-container logon-bg">
     <div class="logon-container text-center">
-      <i class="fa-solid fa-graduation-cap fa-3x brand-max-widt-icon"></i>
+      <i class="fa-solid fa-graduation-cap fa-4x brand-max-widt-icon"></i>
       <h2 class="my-2">Actualizar contraseña</h2>
       <hr class="w-100" />
-
       <span class="vertical-group w-100 my-1">
         <label for="newpassword0">Contraseña</label>
 
