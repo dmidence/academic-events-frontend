@@ -8,10 +8,20 @@
     </template>
     <template #end v-if="!logged">
       <routerLink class="decoration-none" to="/Register">
-        <Button class="mx-2" label="Registrarse" />
+        <Button
+          class="btn btn-primary"
+          style="margin-right: 15px"
+          label="Registrarse"
+        />
       </routerLink>
+
       <routerLink class="decoration-none" to="/Signin">
-        <Button class="p-button-link" label="Iniciar Sesión" />
+        <Button
+          t
+          class="btn btn-secondary"
+          style="margin-right: 20px"
+          label="Iniciar Sesión"
+        />
       </routerLink>
     </template>
     <template #end v-else>
@@ -21,7 +31,7 @@
       ></i>
       <routerLink class="decoration-none px-3" to="/Signin">
         <i
-          class="fa fa-sign-out fa-2x  cursor-pointer color-detail"
+          class="fa fa-sign-out fa-2x cursor-pointer color-detail"
           @click="$refs.sideBar.openNav()"
         ></i>
       </routerLink>
@@ -32,12 +42,12 @@
 </template>
 
 <script>
-import SideBar from './Sidebar.vue'
+import SideBar from "./Sidebar.vue";
 export default {
   data() {
     return {
-      items: [{ label: 'AE', to: '/' }],
-    }
+      items: [{ label: "AE", to: "/" }],
+    };
   },
   props: {
     logged: Boolean,
@@ -45,11 +55,11 @@ export default {
   components: {
     SideBar,
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../colors';
+@import "../colors";
 
 .p-button-link.button-logout {
   font-weight: bold;
