@@ -1,3 +1,4 @@
+
 <template>
   <Dialog v-model:visible="eventoDialog" :style="{ width: '800px', align: center }" header="Eventos Disponibles"
     :modal="true">

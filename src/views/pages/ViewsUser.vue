@@ -1,63 +1,39 @@
 <template>
   <Header :logged="true" />
-  <div class="main-container">
+
+  <div class="main-container flex-container pt-2 px-4">
     <div class="controls w-100 m-0 p-0">
       <Button icon="pi pi-calendar" label="Subscripciones" @click="$refs.EventMe.getEventMe()" />
-    </div>
-    <Button icon="pi pi-calendar" label="Eventos Privados" @click="eventprivate()" />
-
-    <div class="main-container flex-container pt-2 px-4">
-
-      <Card
-        class="w-30"
-        v-for="eve in evento"
-        :key="eve._id"
-        style="padding: 1rem; margin-top: 15px"
-      >
-
-        <template #header>
-          <img
-            src="https://umad.edu.mx/wp-content/uploads/2018/09/ingenieri%CC%81a-de-software.jpg"
-            style="height: 150px"
-            icon="pi pi-pencil"
-          />
-        </template>
-        <template #title> Evento: {{ eve.title }} </template>
-        <template #content> Ponente: {{ eve.speaker }} </template>
-        <template #footer>
-
-          <Button
-            label="Suscribirse"
-            icon="pi pi-pencil"
-            class="p-button-text"
-            @click="subscribe(eve._id)"
-          />
-
-        </template>
-      </Card>
+      <a href="#private">Eventos Privados</a>.
     </div>
 
-    <Dialog v-model:visible="eventoDialog" :style="{ width: '800px', align: center }" header="Eventos Privados"
-      :modal="true">
-      <div class="p-flu">
-        <Card style="width: 45%; padding: 1rem; margin: 1rem" v-for="privateEve in eventoprivado" :key="privateEve._id">
-          <template #header>
-            <img src="https://umad.edu.mx/wp-content/uploads/2018/09/ingenieri%CC%81a-de-software.jpg"
-              style="height: 150px" icon="pi pi-pencil" />
-          </template>
-          <template #title class="content"> Evento: {{ privateEve.title }} </template>
-
-          <template #subtitle>Ponente: {{ privateEve.speaker }} </template>
-
-          <template #footer>
-
-            <Button label="Suscribirse" icon="pi pi-pencil" class="p-button-text" @click="subscribe(privateEve._id)" />
-
-          </template>
-        </Card>
-      </div>
-    </Dialog>
+    <Card class="w-30" v-for="eve in evento" :key="eve._id" style="padding: 1rem; margin-top: 15px">
+      <template #header>
+        <img :src="eve.image.secureUrl" alt="no funciono" style="height: 150px" icon="pi pi-pencil" />
+      </template>
+      <template #title> Evento: {{ eve.title }} </template>
+      <template #content> Ponente: {{ eve.speaker }} </template>
+      <template #footer>
+        <Button label="Suscribirse" icon="pi pi-pencil" class="p-button-text" @click="subscribe(eve._id)" />
+      </template>
+    </Card>
   </div>
+
+  <a id="private">Eventos Privados</a>
+  <div class="main-container flex-container pt-2 px-4">
+    <Card class="w-30" style=" padding: 1rem; margin: 1rem" v-for="privateEve in eventoprivado" :key="privateEve._id">
+      <template #header>
+        <img :src="privateEve.image.secureUrl" alt="no funciono" style="height: 150px" icon="pi pi-pencil" />
+      </template>
+      <template #title class="content"> Evento: {{ privateEve.title }} </template>
+      <template #subtitle>Ponente: {{ privateEve.speaker }} </template>
+      <template #footer>
+        <Button label="Suscribirse" icon="pi pi-pencil" class="p-button-text" @click="subscribe(privateEve._id)" />
+      </template>
+    </Card>
+  </div>
+
+
   <EventMe ref="EventMe" />
 </template>
 
@@ -121,6 +97,7 @@ export default {
   },
   mounted() {
     this.eventpublic();
+    this.eventprivate();
   },
 
   data() {
