@@ -48,6 +48,7 @@ app.component("RadioButton", RadioButton);
 app.component("Card", Card);
 app.component("Dropdown", Dropdown);
 app.component("Password", Password);
+
 app.mount("#app");
 
 import "bootstrap/dist/js/bootstrap.js";

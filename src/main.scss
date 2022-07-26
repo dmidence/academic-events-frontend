@@ -132,6 +132,11 @@ a {
   padding: 2rem;
 }
 
+.mt-7 {
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+}
+
 .w-10 {
   width: 10%;
 }
@@ -206,7 +211,7 @@ a {
       rgba(6, 30, 49, 0.3),
       rgba(16, 68, 110, 0.3)
     ),
-    url("@../../assets/img/4.jpg");
+    url("./assets/img/p4.jpg");
   background-size: cover;
   background-attachment: fixed;
 }

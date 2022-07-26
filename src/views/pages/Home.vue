@@ -1,60 +1,141 @@
 <template>
   <Header :logged="true" />
+
   <div class="main-container flex-container pt-2 px-4">
     <div class="controls w-100 m-0 p-0">
-      <Button
-        icon="pi pi-check"
-        label="Crear Evento"
-        @click="$refs.eventModal.openNew()"
-      />
+
+      <Button icon="pi pi-check" label="Crear Evento" @click="$refs.eventModal.openNew()" />
     </div>
-    <Card
-      class="w-30"
-      v-for="product in products"
-      :key="product"
-      style="padding: 1rem"
-    >
-      <template #title> Estos van a ser los eventos pendiente </template>
-      <template #content>
-        Descripcion de los eventos pendientes Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Inventore sed consequuntur error
-        repudiandae numquam deserunt quisquam repellat libero asperiores earum
-        nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+    <div class="controls w-100 mt-7 p-0">
+      <Button icon="pi pi-ban" label="Los Evento que cree" @click="$refs.EventOwn.getEventOwn()" />
+      <label class="mt-2"></label>
+    </div>
+    <Card class="w-30" style="padding: 1rem; margin-top: 15px" v-for="eve in evento" :key="eve._id">
+      <template #header>
+        <img :src="eve.image.secureUrl" alt="no funciono" style="height: 250px" />
       </template>
+      <template #title class="content"> Evento: {{ eve.title }} </template>
+      <template #subtitle>Ponente: {{ eve.speaker }} </template>
       <template #footer>
-        <Button icon="pi pi-check" label="Editar" />
-        <Button
-          icon="pi pi-times"
-          label="Eliminar"
-          class="p-button-secondary"
-          style="margin-left: 0.5em"
-        />
+        <Button label="Editar" icon="pi pi-pencil" class="p-button-text" @click="update(eve._id)" />
+        <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="
+        remove(eve._id)" />
+      </template>
+    </Card>
+  </div>
+
+  <p>Eventos Privados</p>
+  <div class="main-container flex-container pt-2 px-4">
+    <Card class="w-30" v-for="privateEve in eventoprivado" :key="privateEve._id"
+      style="padding: 1rem; margin-top: 15px">
+      <template #header>
+        <img :src="privateEve.image.secureUrl" alt="no funciono" />
+      </template>
+      <template #title class="content">Evento: {{ privateEve.title }}
+
+      </template>
+      <template #subtitle>Ponente: {{ privateEve.speaker }} </template>
+      <template #footer>
+
+        <Button label="Editar" icon="pi pi-pencil" class="p-button-text" @click="update(privateEve._id)" />
+        <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="remove(privateEve._id)" />
+
       </template>
     </Card>
   </div>
 
   <!-- Modal ref -->
   <EventModal ref="eventModal" />
+  <EventOwn ref="EventOwn" />
 </template>
 
 <script>
 import Header from "../../components/Header.vue";
 import EventModal from "../../components/EventModal.vue";
 
+import EventOwn from "../../components/EventOwn.vue";
+import { fetchConToken } from "../../helpers/fetch.js";
+
 export default {
   name: "Home",
+  data() {
+    return {
+      evento: [],
+      eventoprivado: [],
+    };
+  },
+  mounted() {
+    this.traerdata();
+    this.eventprivate();
+  },
+
   components: {
     Header,
     EventModal,
+    EventOwn,
   },
-  methods: {},
 
-  data() {
-    return {
-      products: [1, 2, 3],
-    };
+  methods: {
+    traerdata() {
+      fetchConToken("api/v1/events/public", {}, "GET")
+        .then((res) => {
+          console.log(res.data.publicEvents)
+          this.evento = res.data.publicEvents;
+        })
+        .catch(() => {
+          customAlert(
+            "Ha ocurrido un error",
+            "Ocurrio un error al crear el evento.",
+            "error"
+          );
+        });
+    },
+    eventprivate() {
+      this.eventoDialog = true;
+      fetchConToken("api/v1/events/private", {}, "GET")
+        .then((res) => {
+          this.eventoprivado = res.data.privateEvents;
+          console.log(res);
+        })
+        .catch(() => {
+          customAlert(
+            "Ha ocurrido un error",
+            "Ocurrio un error al cargar el evento privado.",
+            "error"
+          );
+        });
+    },
+    async remove(_id) {
+      if (confirm("Esta seguro de eliminar este evento??")) {
+        const res = await fetchConToken(`api/v1/events/${_id}`, {}, "DELETE")
+          .then((res) => {
+            console.log("Elimine");
+          })
+          .catch(() => {
+            alert(
+              "Ha ocurrido un error",
+              "Ocurrio un error al eliminar  el evento.",
+              "error"
+            );
+          });
+      }
+    },
+    async update(_id) {
+      if (confirm("Esta seguro de editar este evento??")) {
+        console.log("edite");
+        this.evento = { ...evento };
+        this.eventoDialog = tue;
+      }
+    },
+
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  height: 240px;
+  width: 300px;
+  object-fit: cover;
+}
+</style>

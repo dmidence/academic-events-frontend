@@ -1,3 +1,4 @@
+
 <template>
   <Dialog v-model:visible="eventoDialog" :style="{ width: '800px', align: center }" header="Eventos Disponibles"
     :modal="true">
@@ -14,8 +15,8 @@
         <template #footer>
           <Button label="Editar" icon="pi pi-pencil" class="p-button-text" @click="update(eve._id)" />
           <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="
-            remove(eve._id);
-          hideDialog;
+  remove(eve._id);
+hideDialog;
           " />
         </template>
       </Card>

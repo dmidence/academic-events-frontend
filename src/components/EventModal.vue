@@ -61,6 +61,11 @@
       </span>
     </div>
 
+    <span class="vertical-group w-100 my-1">
+      <label for="imagen">Imagen</label>
+      <Input id="imagen" type="file" class="form-control form-control-sm" @change="uploadImg" />
+    </span>
+
     <template #footer>
       <Button label="Cancelar" icon="pi pi-times" class="p-button-text" @click="hideDialog" />
       <Button label="Guardar" icon="pi pi-check" class="p-button-text" @click="registerEvent()" />
@@ -70,7 +75,7 @@
 
 <script>
 import { customAlert } from "../helpers/alerts";
-import { fetchConToken } from "../helpers/fetch";
+import { fetchConToken, fetchConTokenformData } from "../helpers/fetch";
 
 export default {
   props: [],
@@ -79,7 +84,7 @@ export default {
   name: "registerEvent",
   data() {
     return {
-
+      file: null,
       eventos: null,
       evento: {},
       categorySelect: {},
@@ -101,10 +106,14 @@ export default {
       this.evento = {};
       this.submitted = false;
       this.eventoDialog = true;
+      this.getCategory();
     },
     hideDialog() {
       this.eventoDialog = false;
       this.submitted = false;
+    },
+    uploadImg(event) {
+      this.file = event.target.files[0];
     },
 
     getCategory() {
@@ -113,7 +122,8 @@ export default {
           console.log(res.data.categories)
           this.category = res.data.categories;
         })
-        .catch(() => {
+        .catch((err) => {
+          console.log(err)
           customAlert(
             "Ha ocurrido un error",
             "Ocurrio un error al traer las categorias.",
@@ -134,9 +144,16 @@ export default {
         limitParticipants: parseInt(this.inputParticipants),
         startDate: this.inputDate.toString(),
         endDate: this.inputDateFin.toString(),
+
       };
-      console.log(event);
-      fetchConToken("api/v1/events", event, "POST", {})
+      let form_data = new FormData();
+
+      for (let key in event) {
+        form_data.append(key, event[key]);
+      }
+      form_data.append("image", this.file)
+
+      fetchConTokenformData("api/v1/events", form_data, "POST", {})
         .then((res) => {
           console.log(res);
           (this.inputTitle = ""),
