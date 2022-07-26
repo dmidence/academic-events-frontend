@@ -4,8 +4,10 @@
     <div class="controls w-100 m-0 p-0">
       <Button icon="pi pi-check" label="Crear Evento" @click="$refs.eventModal.openNew()" />
     </div>
-    <Button icon="pi pi-ban" label="Los Evento que cree" @click="$refs.EventOwn.getEventOwn()" />
-
+    <div class="controls w-100 mt-7 p-0">
+      <Button icon="pi pi-ban" label="Los Evento que cree" @click="$refs.EventOwn.getEventOwn()" />
+      <label class="mt-2"></label>
+    </div>
 
     <Card class="w-30" v-for="product in products" :key='product' style="padding:1rem;">
       <template #title>

@@ -1,5 +1,5 @@
 <template>
-  <div id="mySidepanel" ref="mySidepanel" class="sidepanel">
+  <div id="mySidepanel" ref="mySidepanel" class="sidepanel" v-if="show">
     <div class="centered">
       <i class="fa-solid fa-graduation-cap fa-4x text-white active-icon" @click="closeNav()"></i>
     </div>
@@ -7,8 +7,8 @@
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
     <!-- <a @click="$refs.eventModal.openNew()">Crear Eventos</a>-->
     <div class="d-grid gap-2 d-md-block optionsPanel" ref="optionsPanel">
-      <Button label="Crear Eventos" icon="pi pi-calendar-plus" class="fixed-button"
-        @click="$refs.eventModal.openNew(), $refs.eventModal.getCategory()" style="margin: 7px" />
+      <Button label="Crear Eventos" icon="pi pi-calendar-plus" class="fixed-button" @click="$refs.eventModal.openNew()"
+        style="margin: 7px" />
       <Button label="Mis eventos" icon="pi pi-calendar" class="fixed-button" @click="$refs.cardEvento.traerdata()"
         style="margin: 7px" />
       <routerLink class="decoration-none p-0 m-0" to="/Signin">
@@ -21,6 +21,9 @@
       <i class="fa-solid fa-arrow-right-from-bracket fa-2x text-white"></i>
     </div> -->
     </div>
+  </div>
+  <div id="mySidepanel" ref="mySidepanel" class="sidepanel" v-else>
+    <h1>Otras opciones</h1>
   </div>
 
   <CardEvento ref="cardEvento" />
@@ -35,9 +38,21 @@ import CardEvento from "./CardEvento.vue";
 
 export default {
   props: [],
+  created() {
+
+    if (!!sessionStorage.getItem("userData")) {
+      "user" == JSON.parse(sessionStorage.getItem("userData")).roles[0].name ? this.show = false : this.show = true
+
+    }
+
+
+  },
   mounted() { },
   data() {
-    return {};
+
+    return {
+      show: false,
+    };
   },
   methods: {
     openNav() {
