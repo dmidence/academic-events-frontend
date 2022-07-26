@@ -89,12 +89,14 @@ import Header from "../../components/Header.vue";
 import EventModal from "../../components/EventModal.vue";
 import Footer from "../../components/Footer.vue";
 
+
 export default {
   props: [],
   mounted() {},
   data() {
     return {};
   },
+    
   methods: {},
   computed: {},
   components: {
