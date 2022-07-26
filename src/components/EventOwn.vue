@@ -5,8 +5,7 @@
         <div class="p-flu">
             <Card style="width: 350px; padding: 1rem; margin: 1rem" v-for="eveOwn in eventOwn" :key="eveOwn.title">
                 <template #header>
-                    <img alt="user header"
-                        src="https://umad.edu.mx/wp-content/uploads/2018/09/ingenieri%CC%81a-de-software.jpg">
+                    <img alt="user header" :src="eveOwn.image.secureUrl">
                 </template>
                 <template #title>
                     Titulo: {{ eveOwn.title }}

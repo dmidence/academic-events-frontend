@@ -151,7 +151,8 @@ export default {
       for (let key in event) {
         form_data.append(key, event[key]);
       }
-      form_data.append("file", this.file)
+      form_data.append("image", this.file)
+
       fetchConTokenformData("api/v1/events", form_data, "POST", {})
         .then((res) => {
           console.log(res);
