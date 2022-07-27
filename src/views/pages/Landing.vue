@@ -6,22 +6,28 @@
         <h2 class="sobre-nosotros">Eventos Academicos</h2>
         <h3 class="slogan">SOBRE NOSOTROS</h3>
         <p class="parrafo">
-          Te damos la bienvenida a nuestro portal web, un sitio en la nube
-          en donde podras encontrar diversos eventos academicos que seran
-          impartidos de manerra virtual con diversas categorias del conocimiento
-          y que estaran adscritos a tu institucion de estudio, dichos eventos
-          seran impartidos por profesionales de distinta areas del conocimiento,
-          esperamos que dicha experiencia de aprendizaje sea la mejor.
+          Te damos la bienvenida a nuestro portal web, un sitio en la nube en donde podras
+          encontrar diversos eventos academicos que seran impartidos de manerra virtual
+          con diversas categorias del conocimiento y que estaran adscritos a tu
+          institucion de estudio, dichos eventos seran impartidos por profesionales de
+          distinta areas del conocimiento, esperamos que dicha experiencia de aprendizaje
+          sea la mejor.
         </p>
         <p class="parrafo">
-          Nuestra labor va mas alla de la enseñanza ordinaria y nos proponemos
-          centramos en el fortalecimiento y la facilitación del aprendizaje en
-          linea con ideas innovadoras que permitan a las nuevas generaciones de
-          estudiantes la busqueda permanente del aprendizaje, con una nueva manera
-          mas sencilla y mas expedita de recibir informacion, utilizando el poder de las tecnoligias de
-          la información.
+          Nuestra labor va mas alla de la enseñanza ordinaria y nos proponemos centramos
+          en el fortalecimiento y la facilitación del aprendizaje en linea con ideas
+          innovadoras que permitan a las nuevas generaciones de estudiantes la busqueda
+          permanente del aprendizaje, con una nueva manera mas sencilla y mas expedita de
+          recibir informacion, utilizando el poder de las tecnoligias de la información.
         </p>
-        <a href="http://localhost:8080/Register" class="boton" style="text-decoration: blink" squared variant="info">Suscribete</a>
+        <a
+          href="http://localhost:8080/Register"
+          class="boton"
+          style="text-decoration: blink"
+          squared
+          variant="info"
+          >Suscribete</a
+        >
       </div>
     </section>
     <section class="galeria">
@@ -42,7 +48,9 @@
     <section class="miembros">
       <div class="contenedor">
         <h3 class="sobre-nosotros">NUESTROS SOCIOS</h3>
-        <h3 class="slogan">Conoce algunas instituciones educativas con las que hemos trabajado</h3>
+        <h3 class="slogan">
+          Conoce algunas instituciones educativas con las que hemos trabajado
+        </h3>
         <div class="cards">
           <div class="card card-centered">
             <img src="../../assets/img/unah.png" alt="" />
@@ -62,18 +70,10 @@
         </div>
       </div>
     </section>
-
-    <footer>
-      <div class="contenedor">
-        <h2 class="titulo-footer">Contactanos</h2>
-        <h2 class="subtitulo-footer">Siguenos en nuestras redes sociales</h2>
-        <div class="footer">
-          
-        </div>
-      </div>
-    </footer>
+    <section class="section-final miembros">
+      <Footer />
+    </section>
   </main>
-  <Footer />
   <!-- Modal ref -->
 
   <EventModal ref="eventModal" />
@@ -84,14 +84,13 @@ import Header from "../../components/Header.vue";
 import EventModal from "../../components/EventModal.vue";
 import Footer from "../../components/Footer.vue";
 
-
 export default {
   props: [],
   mounted() {},
   data() {
     return {};
   },
-    
+
   methods: {},
   computed: {},
   components: {
@@ -252,11 +251,7 @@ main {
 .fondo {
   height: 1000px;
   position: relative;
-  background-image: linear-gradient(
-      0deg,
-      rgba(6, 30, 49, 0.3),
-      rgba(16, 68, 110, 0.3)
-    ),
+  background-image: linear-gradient(0deg, rgba(6, 30, 49, 0.3), rgba(16, 68, 110, 0.3)),
     url("../../assets/img/bg6.jpg");
   overflow: hidden;
   background-attachment: fixed;

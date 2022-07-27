@@ -3,43 +3,74 @@
 
   <div class="main-container flex-container pt-2 px-4">
     <div class="controls w-100 m-0 p-0">
-
-      <Button icon="pi pi-check" label="Crear Evento" @click="$refs.eventModal.openNew()" />
+      <Button
+        icon="pi pi-check"
+        label="Crear Evento"
+        @click="$refs.eventModal.openNew()"
+      />
     </div>
     <div class="controls w-100 mt-7 p-0">
-      <Button icon="pi pi-ban" label="Los Evento que cree" @click="$refs.EventOwn.getEventOwn()" />
+      <Button
+        icon="pi pi-ban"
+        label="Mis Eventos"
+        @click="$refs.EventOwn.getEventOwn()"
+      />
       <label class="mt-2"></label>
     </div>
-    <Card class="w-30" style="padding: 1rem; margin-top: 15px" v-for="eve in evento" :key="eve._id">
+    <Card
+      class="w-30"
+      style="padding: 1rem; margin-top: 15px"
+      v-for="eve in evento"
+      :key="eve._id"
+    >
       <template #header>
-        <img :src="eve.image.secureUrl" alt="no funciono" style="height: 250px" />
+        <img :src="eve.image?.secureUrl" alt="no funciono" style="height: 250px" />
       </template>
       <template #title class="content"> Evento: {{ eve.title }} </template>
       <template #subtitle>Ponente: {{ eve.speaker }} </template>
       <template #footer>
-        <Button label="Editar" icon="pi pi-pencil" class="p-button-text" @click="update(eve._id)" />
-        <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="
-        remove(eve._id)" />
+        <Button
+          label="Editar"
+          icon="pi pi-pencil"
+          class="p-button-text"
+          @click="$refs.eventModal.openUpdate(eve)"
+        />
+        <Button
+          label="Eliminar"
+          icon="pi pi-times-circle"
+          class="p-button-text"
+          @click="remove(eve._id)"
+        />
       </template>
     </Card>
   </div>
 
   <p>Eventos Privados</p>
   <div class="main-container flex-container pt-2 px-4">
-    <Card class="w-30" v-for="privateEve in eventoprivado" :key="privateEve._id"
-      style="padding: 1rem; margin-top: 15px">
+    <Card
+      class="w-30"
+      v-for="privateEve in eventoprivado"
+      :key="privateEve._id"
+      style="padding: 1rem; margin-top: 15px"
+    >
       <template #header>
-        <img :src="privateEve.image.secureUrl" alt="no funciono" />
+        <img :src="privateEve.image?.secureUrl" alt="no funciono" />
       </template>
-      <template #title class="content">Evento: {{ privateEve.title }}
-
-      </template>
+      <template #title class="content">Evento: {{ privateEve.title }} </template>
       <template #subtitle>Ponente: {{ privateEve.speaker }} </template>
       <template #footer>
-
-        <Button label="Editar" icon="pi pi-pencil" class="p-button-text" @click="update(privateEve._id)" />
-        <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="remove(privateEve._id)" />
-
+        <Button
+          label="Editar"
+          icon="pi pi-pencil"
+          class="p-button-text"
+          @click="update(privateEve._id)"
+        />
+        <Button
+          label="Eliminar"
+          icon="pi pi-times-circle"
+          class="p-button-text"
+          @click="remove(privateEve._id)"
+        />
       </template>
     </Card>
   </div>
@@ -79,7 +110,7 @@ export default {
     traerdata() {
       fetchConToken("api/v1/events/public", {}, "GET")
         .then((res) => {
-          console.log(res.data.publicEvents)
+          console.log(res.data.publicEvents);
           this.evento = res.data.publicEvents;
         })
         .catch(() => {
@@ -120,14 +151,9 @@ export default {
           });
       }
     },
-    async update(_id) {
-      if (confirm("Esta seguro de editar este evento??")) {
-        console.log("edite");
-        this.evento = { ...evento };
-        this.eventoDialog = tue;
-      }
+    async update(event) {
+      console.log(event);
     },
-
   },
 };
 </script>
