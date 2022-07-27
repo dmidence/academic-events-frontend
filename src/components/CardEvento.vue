@@ -12,7 +12,7 @@
         <template #subtitle>Ponente: {{ eve.speaker }} </template>
 
         <template #footer>
-          <Button label="Editar" icon="pi pi-pencil" class="p-button-text" @click="update(eve._id)" />
+          <Button label="Editar" icon="pi pi-pencil" class="p-button-text" @click="update(eve)" />
           <Button label="Eliminar" icon="pi pi-times-circle" class="p-button-text" @click="
   remove(eve._id);
 hideDialog;
@@ -22,19 +22,18 @@ hideDialog;
     </div>
     <template>
       <Button label="Cancelar" icon="pi pi-times" class="p-button-text" @click="hideDialog" />
-      <EventModal ref="eventModal" />
+      <EventEditModal ref="EventEditModal"  :callback="hideDialog" />
     </template>
   </Dialog>
 </template>
 
 <script>
-import EventModal from "./EventModal.vue";
+import EventEditModal from "./EventEditModal.vue";
 import { customAlert } from "../helpers/alerts";
 import { fetchConToken } from "../helpers/fetch";
 
 export default {
-  props: [],
-
+  
   mounted() { },
   data() {
     return {
@@ -80,12 +79,9 @@ export default {
       }
     },
 
-    async update(_id) {
-      if (confirm("Esta seguro de editar este evento??")) {
-        console.log("edite");
-        this.evento = { ...evento };
-        this.eventoDialog = tue;
-      }
+     update(event) {
+      // console.log(event._id);
+      this.$refs.EventEditModal.openNew({...event});
     },
 
     hideDialog() {
@@ -95,7 +91,7 @@ export default {
   },
   computed: {},
   components: {
-    EventModal,
+    EventEditModal,
   },
 };
 </script>
