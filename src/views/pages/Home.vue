@@ -24,7 +24,18 @@
       :key="eve._id"
     >
       <template #header>
-        <img :src="eve.image?.secureUrl" alt="no funciono" style="height: 250px" />
+        <img
+          :src="eve.image?.secureUrl"
+          alt="Imagen del evento"
+          style="height: 250px"
+          v-if="eve.image?.secureUrl"
+        />
+        <img
+          src="../../assets/img/bg.jpg"
+          alt="Imagen del evento"
+          style="height: 250px"
+          v-else
+        />
       </template>
       <template #title class="content"> Evento: {{ eve.title }} </template>
       <template #subtitle>Ponente: {{ eve.speaker }} </template>
@@ -54,7 +65,18 @@
       style="padding: 1rem; margin-top: 15px"
     >
       <template #header>
-        <img :src="privateEve.image?.secureUrl" alt="no funciono" />
+        <img
+          :src="privateEve.image?.secureUrl"
+          alt="Imagen del evento"
+          style="height: 250px"
+          v-if="privateEve.image?.secureUrl"
+        />
+        <img
+          src="../../assets/img/bg.jpg"
+          alt="Imagen del evento"
+          style="height: 250px"
+          v-else
+        />
       </template>
       <template #title class="content">Evento: {{ privateEve.title }} </template>
       <template #subtitle>Ponente: {{ privateEve.speaker }} </template>
