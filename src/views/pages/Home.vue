@@ -11,7 +11,7 @@
     </div>
     <div class="controls w-100 mt-7 p-0">
       <Button
-        icon="pi pi-ban"
+        icon="pi pi-book"
         label="Mis Eventos"
         @click="$refs.EventOwn.getEventOwn()"
       />
