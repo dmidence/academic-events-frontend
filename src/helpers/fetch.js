@@ -1,6 +1,6 @@
 import axios from "axios";
-/* 
-let API_URL = "http://localhost:3000"; */
+
+// let API_URL = "http://localhost:3000";
 let API_URL = "https://eventsacad.works";
 
 const fetchSinToken = async (endpoint, data, method, params = {}) => {

@@ -41,7 +41,9 @@
       </div>
     </div>
   </div>
-  <Footer />
+  <section class="section-final">
+      <Footer />
+    </section>
 </template>
 
 <script>

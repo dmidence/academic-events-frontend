@@ -17,6 +17,7 @@
 html {
   overflow-x: hidden;
   box-sizing: border-box;
+  background-color: black;
   // font-size: 90%;
 }
 .fs-1 {
@@ -203,6 +204,11 @@ a {
 
 .bg-secondary {
   background-color: $secondary;
+}
+
+.section-final {
+  position: relative;
+  width: 100%;
 }
 
 .main-container.logon-bg {
