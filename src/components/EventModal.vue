@@ -1,53 +1,28 @@
 <template>
   <!-- FORMULARIO PARA CREAR EL EVENTO -->
-  <Dialog
-    v-model:visible="eventoDialog"
-    :style="{ width: '450px' }"
-    :header="modalType == 1 ? 'Crear Evento' : 'Actualizar Evento'"
-    :modal="true"
-    class="p-fluid"
-  >
+  <Dialog v-model:visible="eventoDialog" :style="{ width: '450px' }"
+    :header="modalType == 1 ? 'Crear Evento' : 'Actualizar Evento'" :modal="true" class="p-fluid">
     <span class="vertical-group w-100 my-1">
       <label for="nombreEvento">Nombre del Evento</label>
-      <InputText
-        id="nombreEvento"
-        type="text"
-        class="w-100 p-inputtext-sm"
-        v-model="inputTitle"
-      />
+      <InputText id="nombreEvento" type="text" class="w-100 p-inputtext-sm" v-model="inputTitle" />
     </span>
 
     <span class="vertical-group w-100 my-2">
       <label for="descripcion">Descripcion del Evento: </label>
       <!--       <Textarea id="descripcion" v-model="inputDescription" required="true" rows="8" cols="60" /> -->
-      <InputText
-        id="descripcion"
-        type="text"
-        class="w-100 p-inputtext-sm"
-        v-model="inputDescription"
-      />
+      <InputText id="descripcion" type="text" class="w-100 p-inputtext-sm" v-model="inputDescription" />
     </span>
 
     <div class="flex-container">
       <span class="vertical-group w-100 my-1">
         <label for="modalidad">Modalidad del Evento</label>
-        <InputText
-          id="modalidad"
-          type="text"
-          class="w-100 p-inputtext-sm"
-          v-model="inputModalidad"
-        />
+        <InputText id="modalidad" type="text" class="w-100 p-inputtext-sm" v-model="inputModalidad" />
         <!-- <Dropdown v-model="selectedModal" :options="Modalidades" optionLabel="name" placeholder="Seleccione Modalidad" /> -->
       </span>
 
       <span class="vertical-group w-100 my-1">
         <label for="tipo">Tipo de Evento</label>
-        <InputText
-          id="tipo"
-          type="text"
-          class="w-100 p-inputtext-sm"
-          v-model="inputType"
-        />
+        <InputText id="tipo" type="text" class="w-100 p-inputtext-sm" v-model="inputType" />
         <!--  <Dropdown v-model="selectedType" :options="Tipos" optionLabel="name" placeholder="Tipo de Evento" /> -->
       </span>
     </div>
@@ -65,22 +40,12 @@
 
     <span class="vertical-group w-100 my-1">
       <label for="nombrePonente">Nombre del Ponente</label>
-      <InputText
-        id="nombrePonente"
-        type="text"
-        class="w-100 p-inputtext-sm"
-        v-model="inputPonente"
-      />
+      <InputText id="nombrePonente" type="text" class="w-100 p-inputtext-sm" v-model="inputPonente" />
     </span>
 
     <span class="vertical-group w-100 my-1">
       <label for="limparticipantes">Limite de participantes</label>
-      <InputText
-        id="limparticipantes"
-        type="number"
-        class="w-100 p-inputtext-sm"
-        v-model="inputParticipants"
-      />
+      <InputText id="limparticipantes" type="number" class="w-100 p-inputtext-sm" v-model="inputParticipants" />
     </span>
 
     <div class="flex-container">
@@ -101,27 +66,13 @@
 
     <span class="vertical-group w-100 my-1">
       <label for="imagen">Imagen</label>
-      <Input
-        id="imagen"
-        type="file"
-        class="form-control form-control-sm"
-        @change="uploadImg"
-      />
+      <Input id="imagen" type="file" class="form-control form-control-sm" @change="uploadImg" />
     </span>
 
     <template #footer>
-      <Button
-        label="Cancelar"
-        icon="pi pi-times"
-        class="p-button-text"
-        @click="hideDialog"
-      />
-      <Button
-        :label="modalType == 1 ? 'Guardar' : 'Actualzar'"
-        icon="pi pi-check"
-        class="p-button-text"
-        @click="registerEvent()"
-      />
+      <Button label="Cancelar" icon="pi pi-times" class="p-button-text" @click="hideDialog" />
+      <Button :label="modalType == 1 ? 'Guardar' : 'Actualzar'" icon="pi pi-check" class="p-button-text"
+        @click="registerEvent()" />
     </template>
   </Dialog>
 </template>
@@ -136,7 +87,7 @@ export default {
   name: "registerEvent",
   data() {
     return {
-      file: null,
+      file: "",
       eventos: null,
       evento: {},
       categorySelect: {},
@@ -243,7 +194,7 @@ export default {
 
             this.hideDialog();
             customAlert("Registro de Evento", "¡Evento creado correctamente!", "success")
-              .then(() => {})
+              .then(() => { })
               .catch((err) => {
                 console.log("Ha ocurrido un error al definir la alerta");
                 console.log(err);
@@ -264,8 +215,20 @@ export default {
             );
           });
       } else if (this.modalType == 2) {
-        form_data.append("_id", this.currentEvent);
-        form_data.append("registeredParticipants", parseInt(this.registeredParticipants));
+        if (form_data.get("image") === "") {
+          form_data.delete("image")
+        }
+
+        if (form_data.get("category") === "") {
+          form_data.delete("category")
+
+        }
+        console.log(form_data.get("image"))
+        console.log(typeof (form_data.get("image")))
+
+
+        /* form_data.append("_id", this.currentEvent); */
+        /*  form_data.append("registeredParticipants", parseInt(this.registeredParticipants)); */
         fetchConTokenformData(`api/v1/events/${this.currentEvent}`, form_data, "PUT", {})
           .then((res) => {
             console.log(res);
@@ -281,23 +244,25 @@ export default {
 
             this.hideDialog();
             customAlert("Registro de Evento", "¡Evento creado correctamente!", "success")
-              .then(() => {})
+              .then(() => { })
               .catch((err) => {
                 console.log("Ha ocurrido un error al definir la alerta");
                 console.log(err);
               });
           })
-          .catch(() => {
+          .catch((err) => {
             this.hideDialog();
+            console.log(err)
+            console.log(form_data.values)
             this.$toast.add({
               severity: "success",
               summary: "Successful",
-              detail: "Problema al crear el evento",
+              detail: "Problema al editar  el evento",
               life: 3000,
             });
             customAlert(
               "Ha ocurrido un error",
-              "Ocurrio un error al crear el evento.",
+              "Ocurrio un error al editar el evnto el evento.",
               "error"
             );
           });
