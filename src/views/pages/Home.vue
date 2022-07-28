@@ -6,7 +6,13 @@
       <Button icon="pi pi-check" label="Crear Evento" @click="$refs.eventModal.openNew()" />
     </div>
     <div class="controls w-100 mt-7 p-0">
-      <Button icon="pi pi-ban" label="Mis Eventos" @click="$refs.EventOwn.getEventOwn()" />
+
+      <Button
+        icon="pi pi-book"
+        label="Mis Eventos"
+        @click="$refs.EventOwn.getEventOwn()"
+      />
+
       <label class="mt-2"></label>
     </div>
     <Card class="w-30" style="padding: 1rem; margin-top: 15px" v-for="eve in evento" :key="eve._id">

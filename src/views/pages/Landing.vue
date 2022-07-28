@@ -21,12 +21,12 @@
           recibir informacion, utilizando el poder de las tecnoligias de la información.
         </p>
         <a
-          href="http://localhost:8080/Register"
+          href="/Register"
           class="boton"
           style="text-decoration: blink"
           squared
           variant="info"
-          >Suscribete</a
+          >Registrate</a
         >
       </div>
     </section>
