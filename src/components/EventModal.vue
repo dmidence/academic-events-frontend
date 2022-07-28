@@ -179,6 +179,9 @@ export default {
       }
       form_data.append("image", this.file);
       if (this.modalType == 1) {
+        if (form_data.get("image") === "") {
+          form_data.delete("image")
+        }
         fetchConTokenformData("api/v1/events", form_data, "POST", {})
           .then((res) => {
             console.log(res);
