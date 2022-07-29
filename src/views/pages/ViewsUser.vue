@@ -9,10 +9,8 @@
         @click="$refs.EventMe.getEventMe()"
       />
       <div class="d-inline-flex p-2 simple-list-example-scrollspy text-center">
-        <a
-          class="list-group-item list-group-item-action p-3 mb-2 bg-primary text-light"
-          href="#private"
-          >Eventos Privados</a
+        <a class="list-group-item list-group-item-action evpriv p-3 mb-2" href="#private">
+          <i class="pi pi-lock"></i> Eventos Privados</a
         >
       </div>
     </div>
@@ -44,8 +42,8 @@
     </Card>
   </div>
 
-  <div class="">
-    <h4><a id="private">Eventos Privados</a></h4>
+  <div class="container bg-color text-bg-info mt-4">
+    <p class="text-center text-muted fs-3"><a id="private">Eventos Privados</a></p>
   </div>
   <div class="main-container flex-container pt-2 px-4">
     <Card
@@ -154,6 +152,16 @@ export default {
 </script>
 
 <style scoped>
+.evpriv {
+  font-size: large;
+  color: orange;
+  font-weight: bold;
+}
+.evpriv:hover {
+  font-size: larger;
+  color: darkslateblue;
+}
+
 img {
   height: 250px;
   object-fit: cover;
