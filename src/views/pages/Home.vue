@@ -5,6 +5,7 @@
     <div class="controls w-100 m-0 p-0">
       <Button icon="pi pi-check" label="Crear Evento" @click="$refs.eventModal.openNew()" />
     </div>
+
     <div class="controls w-100 mt-7 p-0">
 
       <Button
@@ -14,6 +15,11 @@
       />
 
       <label class="mt-2"></label>
+      <div class="d-inline-flex p-2 simple-list-example-scrollspy text-center">
+        <a class="list-group-item list-group-item-action evpriv p-3 mb-2" href="#private">
+          <i class="pi pi-lock"></i> Eventos Privados</a
+        >
+      </div>
     </div>
     <Card class="w-30" style="padding: 1rem; margin-top: 15px" v-for="eve in evento" :key="eve._id">
       <template #header>
@@ -29,7 +35,9 @@
     </Card>
   </div>
 
-  <p>Eventos Privados</p>
+  <div class="container bg-color text-bg-info mt-4">
+    <p class="text-center text-muted fs-3"><a id="private">Eventos Privados</a></p>
+  </div>
   <div class="main-container flex-container pt-2 px-4">
     <Card class="w-30" v-for="privateEve in eventoprivado" :key="privateEve._id"
       style="padding: 1rem; margin-top: 15px">
@@ -133,6 +141,15 @@ export default {
 </script>
 
 <style scoped>
+.evpriv {
+  font-size: large;
+  color: orange;
+  font-weight: bold;
+}
+.evpriv:hover {
+  font-size: larger;
+  color: darkslateblue;
+}
 img {
   height: 240px;
   width: 300px;

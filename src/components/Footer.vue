@@ -10,13 +10,18 @@
           <div class="col-md-3 col-sm-6 col-sx-12 md-mb-30 sm-mb-30 segment-two">
             <h2>Navega ya!</h2>
             <ul>
-              <li><a href="/">Inicio</a></li>
+              <li><router-link to="/">Inicio</router-link></li>
+
+              <!-- <li>
+                <span>
+                  <router-link to="">Conocenos</router-link>
+                </span>
+              </li> -->
+              <li><router-link to="/Register">Registrate</router-link></li>
 
               <li>
-                <span> <a href="/about">Conocenos</a></span>
+                <router-link to="/Signin">Inicia Sesión</router-link>
               </li>
-              <li><a href="/Register">Registrate</a></li>
-              <li><a href="/Login">Inicia Sesión</a></li>
             </ul>
           </div>
           <div class="col-md-3 col-sm-6 col-sx-12 md-mb-30 sm-mb-30 segment-three">
@@ -143,7 +148,7 @@ h2 {
   padding-right: 10px;
 }
 
-.segment-three a {
+.segment-three router-link {
   background: #494848;
   width: 40px;
   height: 40px;
@@ -152,7 +157,7 @@ h2 {
   font-size: 20px;
 }
 
-.segment-three a i {
+.segment-three router-link i {
   font-size: 30px;
   color: #fff;
   padding: 5px 5px;

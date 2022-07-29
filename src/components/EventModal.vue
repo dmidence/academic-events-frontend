@@ -1,30 +1,74 @@
 <template>
   <!-- FORMULARIO PARA CREAR EL EVENTO -->
-  <Dialog v-model:visible="eventoDialog" :style="{ width: '450px' }"
-    :header="modalType == 1 ? 'Crear Evento' : 'Actualizar Evento'" :modal="true" class="p-fluid">
+  <Dialog
+    v-model:visible="eventoDialog"
+    :style="{ width: '450px' }"
+    :header="modalType == 1 ? 'Crear Evento' : 'Actualizar Evento'"
+    :modal="true"
+    class="p-fluid"
+  >
     <span class="vertical-group w-100 my-1">
       <label for="nombreEvento">Nombre del Evento</label>
-      <InputText id="nombreEvento" type="text" class="w-100 p-inputtext-sm" v-model="inputTitle" />
+      <InputText
+        id="nombreEvento"
+        type="text"
+        class="w-100 p-inputtext-sm"
+        v-model="inputTitle"
+      />
     </span>
 
     <span class="vertical-group w-100 my-2">
       <label for="descripcion">Descripcion del Evento: </label>
-      <!--  <Textarea id="descripcion" v-model="inputDescription" required="true" rows="8" cols="60" /> -->
-      <InputText id="descripcion" type="text" class="w-100 p-inputtext-sm" v-model="inputDescription" />
+
+      <!--       <Textarea id="descripcion" v-model="inputDescription" required="true" rows="8" cols="60" /> -->
+      <InputText
+        id="descripcion"
+        type="text"
+        class="w-100 p-inputtext-sm"
+        v-model="inputDescription"
+      />
+
     </span>
 
     <div class="flex-container">
-      <span class="vertical-group w-100 my-1">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="modalidad">Modalidad del Evento:</label>
+          <select v-model="inputModalidad" class="form-control" id="modalidad">
+            <option value="" selected disable>--Seleccione una Modalidad--</option>
+            <option value="virtual">Virtual</option>
+            <option value="presencial">Presencial</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- <span class="vertical-group w-100 my-1">
         <label for="modalidad">Modalidad del Evento</label>
         <InputText id="modalidad" type="text" class="w-100 p-inputtext-sm" v-model="inputModalidad" />
-        <!-- <Dropdown v-model="selectedModal" :options="Modalidades" optionLabel="name" placeholder="Seleccione Modalidad" /> -->
-      </span>
+         <Dropdown v-model="selectedModal" :options="Modalidades" optionLabel="name" placeholder="Seleccione Modalidad" /> -->
+      <!-- </span> -->
 
-      <span class="vertical-group w-100 my-1">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="tipo">Tipo de Evento:</label>
+          <select v-model="inputType" class="form-control" id="tipo">
+            <option value="" selected disable>--Seleccion un Tipo--</option>
+            <option value="publico">Público</option>
+            <option value="privado">Privado</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- <span class="vertical-group w-100 my-1">
         <label for="tipo">Tipo de Evento</label>
-        <InputText id="tipo" type="text" class="w-100 p-inputtext-sm" v-model="inputType" />
-        <!--  <Dropdown v-model="selectedType" :options="Tipos" optionLabel="name" placeholder="Tipo de Evento" /> -->
-      </span>
+        <InputText
+          id="tipo"
+          type="text"
+          class="w-100 p-inputtext-sm"
+          v-model="inputType"
+        /> -->
+      <!--  <Dropdown v-model="selectedType" :options="Tipos" optionLabel="name" placeholder="Tipo de Evento" /> -->
+      <!-- </span> -->
     </div>
     <div class="col-12">
       <div class="form-group">
@@ -40,12 +84,22 @@
 
     <span class="vertical-group w-100 my-1">
       <label for="nombrePonente">Nombre del Ponente</label>
-      <InputText id="nombrePonente" type="text" class="w-100 p-inputtext-sm" v-model="inputPonente" />
+      <InputText
+        id="nombrePonente"
+        type="text"
+        class="w-100 p-inputtext-sm"
+        v-model="inputPonente"
+      />
     </span>
 
     <span class="vertical-group w-100 my-1">
       <label for="limparticipantes">Limite de participantes</label>
-      <InputText id="limparticipantes" type="number" class="w-100 p-inputtext-sm" v-model="inputParticipants" />
+      <InputText
+        id="limparticipantes"
+        type="number"
+        class="w-100 p-inputtext-sm"
+        v-model="inputParticipants"
+      />
     </span>
 
     <div class="flex-container">
@@ -66,13 +120,27 @@
 
     <span class="vertical-group w-100 my-1">
       <label for="imagen">Imagen</label>
-      <Input id="imagen" type="file" class="form-control form-control-sm" @change="uploadImg" />
+      <Input
+        id="imagen"
+        type="file"
+        class="form-control form-control-sm"
+        @change="uploadImg"
+      />
     </span>
 
     <template #footer>
-      <Button label="Cancelar" icon="pi pi-times" class="p-button-text" @click="hideDialog" />
-      <Button :label="modalType == 1 ? 'Guardar' : 'Actualzar'" icon="pi pi-check" class="p-button-text"
-        @click="registerEvent()" />
+      <Button
+        label="Cancelar"
+        icon="pi pi-times"
+        class="p-button-text"
+        @click="hideDialog"
+      />
+      <Button
+        :label="modalType == 1 ? 'Guardar' : 'Actualzar'"
+        icon="pi pi-check"
+        class="p-button-text"
+        @click="registerEvent()"
+      />
     </template>
   </Dialog>
 </template>
@@ -180,7 +248,7 @@ export default {
       form_data.append("image", this.file);
       if (this.modalType == 1) {
         if (form_data.get("image") === "") {
-          form_data.delete("image")
+          form_data.delete("image");
         }
         fetchConTokenformData("api/v1/events", form_data, "POST", {})
           .then((res) => {
@@ -199,7 +267,9 @@ export default {
 
             customAlert("Registro de Evento", "¡Evento creado correctamente!", "success")
 
+
               .then(() => { })
+
               .catch((err) => {
                 console.log("Ha ocurrido un error al definir la alerta");
                 console.log(err);
@@ -221,16 +291,14 @@ export default {
           });
       } else if (this.modalType == 2) {
         if (form_data.get("image") === "") {
-          form_data.delete("image")
+          form_data.delete("image");
         }
 
         if (form_data.get("category") === "") {
-          form_data.delete("category")
-
+          form_data.delete("category");
         }
-        console.log(form_data.get("image"))
-        console.log(typeof (form_data.get("image")))
-
+        console.log(form_data.get("image"));
+        console.log(typeof form_data.get("image"));
 
         /* form_data.append("_id", this.currentEvent); */
         /*  form_data.append("registeredParticipants", parseInt(this.registeredParticipants)); */
@@ -248,10 +316,12 @@ export default {
               (this.inputDateFin = "");
 
             this.hideDialog();
+
             this.$router.go(0)
             customAlert("Registro de Evento", "¡Evento actualizado correctamente!", "success")
 
               .then(() => { })
+
               .catch((err) => {
                 console.log("Ha ocurrido un error al definir la alerta");
                 console.log(err);
@@ -259,8 +329,8 @@ export default {
           })
           .catch((err) => {
             this.hideDialog();
-            console.log(err)
-            console.log(form_data.values)
+            console.log(err);
+            console.log(form_data.values);
             this.$toast.add({
               severity: "success",
               summary: "Successful",
