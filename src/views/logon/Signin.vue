@@ -11,12 +11,7 @@
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userPassword">Contraseña</label>
-        <InputText
-          id="userPassword"
-          type="password"
-          class="w-100"
-          v-model="inputPassword"
-        />
+        <InputText id="userPassword" type="password" class="w-100" v-model="inputPassword" />
       </span>
       <span class="vertical-group w-100 my-1">
         <!-- <router-link to="/Home" class="text-center w-100"> -->
@@ -24,32 +19,26 @@
         <!-- </router-link> -->
       </span>
       <div class="vertical-group centered-group w-100 my-1 fs-6">
-        <span
-          >¿No recuerda su contraseña?,
-          <router-link to="/restorePassword" class="text-center w-100"
-            >Restablecer contraseña</router-link
-          ></span
-        >
+        <span>¿No recuerda su contraseña?,
+          <router-link to="/restorePassword" class="text-center w-100">Restablecer contraseña</router-link>
+        </span>
       </div>
       <div class="vertical-group centered-group w-100 my-1 fs-6">
-        <span
-          >¿No tienes una cuenta?,
-          <router-link to="/Register" class="text-center w-100"
-            >Registrate</router-link
-          ></span
-        >
+        <span>¿No tienes una cuenta?,
+          <router-link to="/Register" class="text-center w-100">Registrate</router-link>
+        </span>
       </div>
     </div>
   </div>
   <section class="section-final">
-      <Footer />
-    </section>
+    <Footer />
+  </section>
 </template>
 
 <script>
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
-
+import { customAlert } from "../../helpers/alerts";
 import { fetchSinToken, fetchConToken } from "../../helpers/fetch";
 
 export default {
@@ -93,20 +82,25 @@ export default {
                   break;
               }
             })
-            .catch((err) => {
-              console.log(err);
+            .catch(() => {
+
             });
         })
         .catch((err) => {
-          console.log("err");
-          console.log(err);
+          customAlert(
+            "Error al iniciar sesion",
+            "Revise sus Datos",
+            "error"
+          );
+
         });
     },
   },
 
   props: [],
-  mounted() {},
+  mounted() { },
 };
 </script>
 
-<style></style>
+<style>
+</style>

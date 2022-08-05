@@ -7,43 +7,20 @@
       <hr class="w-100" />
       <span class="vertical-group w-100 my-1">
         <label for="username">Nombre</label>
-        <InputText
-          id="username"
-          placeholder="Ej: Ariel"
-          type="text"
-          class="w-100 p-inputtext-sm"
-          v-model="inputName"
-        />
+        <InputText id="username" placeholder="Ej: Ariel" type="text" class="w-100 p-inputtext-sm" v-model="inputName" />
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userlastname">Apellido</label>
-        <InputText
-          id="userlastname"
-          placeholder="Ej: Flores"
-          type="text"
-          class="w-100 form-control"
-          v-model="inputLastname"
-        />
+        <InputText id="userlastname" placeholder="Ej: Flores" type="text" class="w-100 form-control"
+          v-model="inputLastname" />
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="useremail">Correo</label>
-        <InputText
-          id="useremail"
-          placeholder="Ej: ejemplo@unah.hn "
-          type="text"
-          class="w-100"
-          v-model="inputEmail"
-        />
+        <InputText id="useremail" placeholder="Ej: ejemplo@unah.hn " type="text" class="w-100" v-model="inputEmail" />
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userpassword">Contraseña</label>
-        <Password
-          v-model="inputPassword"
-          id="userpassword"
-          placeholder="Contraseña"
-          class="w-100"
-          type="password"
-        >
+        <Password v-model="inputPassword" id="userpassword" placeholder="Contraseña" class="w-100" type="password">
           <template #header>
             <h6>Elige una Contraseña</h6>
           </template>
@@ -61,35 +38,27 @@
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userpasswordv">Confirmar Contraseña</label>
-        <InputText
-          id="userpasswordv"
-          placeholder="Contraseña"
-          type="password"
-          class="w-100"
-          v-model="inputPasswordv"
-        />
+        <InputText id="userpasswordv" placeholder="Contraseña" type="password" class="w-100" v-model="inputPasswordv" />
       </span>
       <span class="vertical-group w-100 my-1">
         <Button @click="register()" label="Registrar" class="w-100" />
       </span>
 
       <span class="vertical-group centered-group w-100 my-1 fs-6 text-center">
-        <span
-          >¿Ya tienes una cuenta?,
+        <span>¿Ya tienes una cuenta?,
           <router-link to="/Signin" class="text-center w-100">Inicia Sesión</router-link>
         </span>
       </span>
     </div>
   </div>
   <section class="section-final">
-      <Footer />
-    </section>
+    <Footer />
+  </section>
 </template>
 
 <script>
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
-
 import { customAlert } from "../../helpers/alerts";
 import { fetchSinToken } from "../../helpers/fetch";
 
@@ -127,15 +96,14 @@ export default {
           console.log(res);
           customAlert(
             "Registro Exitoso",
-            "¡Bienvenido, tu usuario ha sido registrado correctamente!",
+            "¡Bienvenido, tu usuario ha sido registrado correctamente! ¡Revisa tu correo para autenticar tu usuario!",
             "success"
           )
             .then(() => {
               this.$router.push("Signin");
             })
-            .catch((err) => {
-              console.log("Ha ocurrido un error al definir la alerta");
-              console.log(err);
+            .catch(() => {
+
             });
         })
         .catch(() => {
@@ -149,7 +117,7 @@ export default {
   },
 
   props: [],
-  mounted() {},
+  mounted() { },
 
   computed: {},
 };
