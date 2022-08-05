@@ -8,12 +8,7 @@
       <span class="vertical-group w-100 my-1">
         <label for="userEmail">Ingrese su correo electronico</label>
 
-        <InputText
-          id="userEmail"
-          type="text"
-          class="w-100"
-          v-model="inputEmail"
-        />
+        <InputText id="userEmail" type="text" class="w-100" v-model="inputEmail" />
       </span>
 
       <span class="vertical-group w-100 my-1">
@@ -23,22 +18,21 @@
       </span>
       <span class="vertical-group w-100 my-1 fs-6">
         <span>
-          <router-link to="/signin" class="text-center w-100"
-            >Regresar</router-link
-          >
+          <router-link to="/signin" class="text-center w-100">Regresar</router-link>
         </span>
       </span>
     </div>
   </div>
   <section class="section-final">
-      <Footer />
-    </section>
+    <Footer />
+  </section>
 </template>
 
 <script>
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
 import { fetchSinToken } from "../../helpers/fetch";
+import { customAlert } from "../../helpers/alerts";
 export default {
   components: {
     Header,
@@ -57,12 +51,25 @@ export default {
         "POST",
         {}
       )
-        .then((res) => {
-          console.log(res.data);
+        .then(() => {
+          customAlert(
+            "Restauracion de Contraseña",
+            "¡Revise su correo para restaurar su contraseña!",
+            "info"
+          )
+            .then(() => {
+              this.$router.push("Signin");
+            })
+            .catch(() => {
+
+            });
         })
-        .catch((err) => {
-          console.log("error reset pasword");
-          console.log(err);
+        .catch(() => {
+          customAlert(
+            "Error al Restaurar Contraseña",
+            "¡Revise el correo que introdujo!",
+            "error"
+          );
         });
     },
   },
