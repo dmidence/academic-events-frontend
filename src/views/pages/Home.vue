@@ -2,23 +2,11 @@
   <Header :logged="true" />
 
   <div class="main-container flex-container pt-2 px-4">
-    <div class="controls w-100 m-0 p-0">
-      <Button icon="pi pi-check" label="Crear Evento" @click="$refs.eventModal.openNew()" />
-    </div>
-
     <div class="controls w-100 mt-7 p-0">
-
-      <Button
-        icon="pi pi-book"
-        label="Mis Eventos"
-        @click="$refs.EventOwn.getEventOwn()"
-      />
-
       <label class="mt-2"></label>
       <div class="d-inline-flex p-2 simple-list-example-scrollspy text-center">
         <a class="list-group-item list-group-item-action evpriv p-3 mb-2" href="#private">
-          <i class="pi pi-lock"></i> Eventos Privados</a
-        >
+          <i class="pi pi-lock"></i> Eventos Privados</a>
       </div>
     </div>
     <Card class="w-30" style="padding: 1rem; margin-top: 15px" v-for="eve in evento" :key="eve._id">
@@ -146,10 +134,12 @@ export default {
   color: orange;
   font-weight: bold;
 }
+
 .evpriv:hover {
   font-size: larger;
   color: darkslateblue;
 }
+
 img {
   height: 240px;
   width: 300px;

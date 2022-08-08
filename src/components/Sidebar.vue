@@ -5,51 +5,46 @@
     </div>
 
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
-    <!-- <a @click="$refs.eventModal.openNew()">Crear Eventos</a>-->
     <div class="d-grid gap-2 d-md-block optionsPanel" ref="optionsPanel">
       <Button label="Crear Eventos" icon="pi pi-calendar-plus" class="fixed-button" @click="$refs.eventModal.openNew()"
         style="margin: 7px" />
-      <Button label="Mis eventos" icon="pi pi-calendar" class="fixed-button" @click="$refs.cardEvento.traerdata()"
+      <Button label="Mis eventos" icon="pi pi-calendar" class="fixed-button" @click="$refs.EventOwn.getEventOwn()"
         style="margin: 7px" />
       <routerLink class="decoration-none p-0 m-0" to="/Signin">
         <i class="fa fa-sign-out fa-2x p-0 m-0" aria-hidden="true"></i>
       </routerLink>
-      <!-- <a >Section 3</a>
-    <a>Section 4</a> -->
-
-      <!-- <div class="centered">
-      <i class="fa-solid fa-arrow-right-from-bracket fa-2x text-white"></i>
-    </div> -->
     </div>
   </div>
+
   <div id="mySidepanel" ref="mySidepanel" class="sidepanel" v-else>
-    <h1>Otras opciones</h1>
+    <div class="centered">
+      <i class="fa-solid fa-graduation-cap fa-4x text-white active-icon" @click="closeNav()"></i>
+    </div>
+    <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
+    <Button label="Subscripciones" icon="pi pi-calendar" class="fixed-button" @click="$refs.EventMe.getEventMe()"
+      style="margin: 7px" />
+
   </div>
 
-  <CardEvento ref="cardEvento" />
-
+  <!-- #COMPONENTS -->
   <EventModal ref="eventModal" />
+  <EventOwn ref="EventOwn" />
+  <EventMe ref="EventMe" />
 </template>
 
 <script>
 import EventModal from "./EventModal.vue";
-
-import CardEvento from "./CardEvento.vue";
-
+import EventOwn from "./EventOwn.vue";
+import EventMe from "./EventMe.vue";
 export default {
   props: [],
   created() {
-
     if (!!sessionStorage.getItem("userData")) {
       "user" == JSON.parse(sessionStorage.getItem("userData")).roles[0].name ? this.show = false : this.show = true
-
     }
-
-
   },
   mounted() { },
   data() {
-
     return {
       show: false,
     };
@@ -62,7 +57,6 @@ export default {
         this.$refs.mySidepanel.style.width = "0";
       }
     },
-
     closeNav() {
       this.$refs.mySidepanel.style.width = "0";
     },
@@ -70,7 +64,8 @@ export default {
   computed: {},
   components: {
     EventModal,
-    CardEvento,
+    EventOwn,
+    EventMe,
   },
 };
 </script>

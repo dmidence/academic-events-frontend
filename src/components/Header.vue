@@ -8,20 +8,11 @@
     </template>
     <template #end v-if="!logged">
       <routerLink class="decoration-none" to="/Register">
-        <Button
-          class="btn btn-primary"
-          style="margin-right: 15px"
-          label="Registrarse"
-        />
+        <Button class="btn btn-primary" style="margin-right: 15px" label="Registrarse" />
       </routerLink>
 
       <routerLink class="decoration-none" to="/Signin">
-        <Button
-          
-          class="btn btn-secondary"
-          style="margin-right: 20px"
-          label="Iniciar Sesión"
-        />
+        <Button class="btn btn-secondary" style="margin-right: 20px" label="Iniciar Sesión" />
       </routerLink>
     </template>
     <template #end v-else>
@@ -29,7 +20,6 @@
       <i class="fa-solid fa-gear fa-2x text-white cursor-pointer" @click="$refs.sideBar.openNav()"></i>
 
       <i class="fa fa-sign-out fa-2x  cursor-pointer color-detail" @click="logout()"></i>
-
 
     </template>
   </Menubar>
