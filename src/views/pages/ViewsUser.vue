@@ -83,14 +83,17 @@ export default {
       if (confirm("Esta seguro de suscribirse a este evento??")) {
         const res = await fetchConToken(`api/v1/events/subscribed/${_id}`, {}, "POST")
           .then((res) => {
-            console.log("Se sucribio al evento");
-            console.log(_id);
+            customAlert(
+              "Subscrito al Evento",
+              "¡Gracias por inscribirte!",
+              "success"
+            );
           })
           .catch(() => {
-            alert(
-              "Ha ocurrido un error",
-              "Ocurrio un error al suscribirse al evento  el evento.",
-              "error"
+            customAlert(
+              "Informacion del Evento",
+              "¡Ya se encuentra subscurito a este evento!",
+              "info"
             );
           });
       }
