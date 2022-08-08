@@ -1,18 +1,8 @@
 <template>
-  <Dialog
-    header="Mis Eventos"
-    v-model:visible="eventoDialog"
-    :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
-    :style="{ width: '850px' }"
-    :maximizable="true"
-    :modal="true"
-  >
+  <Dialog header="Mis Eventos" v-model:visible="eventoDialog" :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+    :style="{ width: '850px' }" :maximizable="true" :modal="true">
     <div class="p-flu">
-      <Card
-        style="width: 350px; padding: 1rem; margin: 1rem"
-        v-for="eveOwn in eventOwn"
-        :key="eveOwn._id"
-      >
+      <Card style="width: 350px; padding: 1rem; margin: 1rem" v-for="eveOwn in eventOwn" :key="eveOwn._id">
         <template #header>
           <img alt="user header" :src="eveOwn.image?.secureUrl" />
         </template>
@@ -23,9 +13,16 @@
           <p>Tipo: {{ eveOwn.type }}</p>
         </template>
         <template #footer>
-          <Button icon="pi pi-ellipsis-v" label="Mas informacion" />
+          <Button icon="pi pi-ellipsis-v" label="Mas informacion" @click="infoEvents(eveOwn._id)" />
         </template>
       </Card>
+    </div>
+  </Dialog>
+
+  <Dialog header="Informacion del Evento" v-model:visible="infoDialog"
+    :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '1050px' }" :maximizable="true" :modal="true">
+    <div v-for="info in eventInfo" :key="info._id">
+      <li>{{ info.email }}</li>
     </div>
   </Dialog>
 </template>
@@ -38,7 +35,9 @@ export default {
   data() {
     return {
       eventoDialog: false,
+      infoDialog: false,
       eventOwn: [],
+      eventInfo: [],
     };
   },
   methods: {
@@ -57,10 +56,27 @@ export default {
           );
         });
     },
+    infoEvents(_id) {
+      this.infoDialog = true
+      fetchConToken(`api/v1/events/registeredUsers/${_id}`, {}, "GET")
+        .then((res) => {
+          console.log(res.data.events.subscribers);
+          this.eventInfo = res.data.events.subscribers;
+        })
+        .catch(() => {
+          customAlert(
+            "Ha ocurrido un error",
+            "Ocurrio un error con la informacion del evento.",
+            "error"
+          );
+        });
+
+      /* this.$router.push("infoEvents"); */
+    },
   },
   computed: {},
   components: {},
-  created() {},
+  created() { },
 };
 </script>
 

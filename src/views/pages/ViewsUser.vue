@@ -36,7 +36,7 @@
       </template>
     </Card>
   </div>
-  <div class="container">holaholaholaholaholaholaholaholaholaholaholaholaholaholaholaholaholaholaholaholahola</div>
+  <div class="container"></div>
 </template>
 
 <script>
