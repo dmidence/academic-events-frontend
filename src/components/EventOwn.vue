@@ -2,27 +2,42 @@
   <Dialog header="Mis Eventos" v-model:visible="eventoDialog" :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
     :style="{ width: '850px' }" :maximizable="true" :modal="true">
     <div class="p-flu">
-      <Card style="width: 350px; padding: 1rem; margin: 1rem" v-for="eveOwn in eventOwn" :key="eveOwn._id">
-        <template #header>
-          <img alt="user header" :src="eveOwn.image?.secureUrl" />
-        </template>
-        <template #title> Titulo: {{ eveOwn.title }} </template>
-        <template #content>
-          <p>Personas Registradas: {{ eveOwn.registeredParticipants }}</p>
-          <p>Modalidad: {{ eveOwn.modality }}</p>
-          <p>Tipo: {{ eveOwn.type }}</p>
-        </template>
-        <template #footer>
-          <Button icon="pi pi-ellipsis-v" label="Mas informacion" @click="infoEvents(eveOwn._id)" />
-        </template>
-      </Card>
+      <div class="card mb-3" style="width: 690px; padding: 1rem; margin: 2rem" v-for="eveOwn in eventOwn"
+        :key="eveOwn._id">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img :src="eveOwn.image?.secureUrl" class="img-fluid rounded-start" alt="image">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Evento: {{ eveOwn.title }}</h5>
+              <p class="card-text">Participantes Registrados: {{ eveOwn.registeredParticipants }}</p>
+              <p class="card-text">Modalidad: {{ eveOwn.modality }} </p>
+              <p class="card-text">Tipo: {{ eveOwn.type }}</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <Button icon="pi pi-ellipsis-v" label="Mas informacion" @click="infoEvents(eveOwn._id)" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </Dialog>
 
-  <Dialog header="Informacion del Evento" v-model:visible="infoDialog"
-    :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '1050px' }" :maximizable="true" :modal="true">
-    <div v-for="info in eventInfo" :key="info._id">
-      <li>{{ info.email }}</li>
+  <Dialog header="Usuarios Inscritos" v-model:visible="infoDialog" :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+    :style="{ width: '1000px' }" :maximizable="true" :modal="true">
+    <div>
+      <table>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo</th>
+        </tr>
+        <tr v-for="info in eventInfo" :key="info._id">
+          <td>{{ info.firstName }}</td>
+          <td>{{ info.lastName }}</td>
+          <td>{{ info.email }}</td>
+        </tr>
+      </table>
     </div>
   </Dialog>
 </template>
@@ -83,6 +98,23 @@ export default {
 <style scoped>
 img {
   height: 250px;
+  width: 950;
   object-fit: cover;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: rgba(60, 185, 248, 0.615);
 }
 </style>
