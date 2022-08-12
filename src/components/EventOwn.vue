@@ -14,7 +14,8 @@
               <p class="card-text">Participantes Registrados: {{ eveOwn.registeredParticipants }}</p>
               <p class="card-text">Modalidad: {{ eveOwn.modality }} </p>
               <p class="card-text">Tipo: {{ eveOwn.type }}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small class="text-muted">Limite de Participantes:
+                  {{ eveOwn.limitParticipants }}</small></p>
               <Button icon="pi pi-ellipsis-v" label="Mas informacion" @click="infoEvents(eveOwn._id)" />
             </div>
           </div>

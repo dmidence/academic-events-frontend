@@ -23,6 +23,8 @@
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
     <Button label="Subscripciones" icon="pi pi-calendar" class="fixed-button" @click="$refs.EventMe.getEventMe()"
       style="margin: 7px" />
+    <Button label=" Calendario" icon="pi pi-calendar" class="fixed-button" @click="$refs.Calendar.calendarEventMe()"
+      style="margin: 7px" />
 
   </div>
 
@@ -30,12 +32,14 @@
   <EventModal ref="eventModal" />
   <EventOwn ref="EventOwn" />
   <EventMe ref="EventMe" />
+  <Calendar ref="Calendar" />
 </template>
 
 <script>
 import EventModal from "./EventModal.vue";
 import EventOwn from "./EventOwn.vue";
 import EventMe from "./EventMe.vue";
+import Calendar from "./Calendar.vue";
 export default {
   props: [],
   created() {
@@ -66,6 +70,7 @@ export default {
     EventModal,
     EventOwn,
     EventMe,
+    Calendar,
   },
 };
 </script>
