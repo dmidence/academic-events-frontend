@@ -19,6 +19,7 @@
 
     <span class="vertical-group w-100 my-2">
       <label for="descripcion">Descripcion del Evento: </label>
+
       <!--       <Textarea id="descripcion" v-model="inputDescription" required="true" rows="8" cols="60" /> -->
       <InputText
         id="descripcion"
@@ -26,6 +27,7 @@
         class="w-100 p-inputtext-sm"
         v-model="inputDescription"
       />
+
     </span>
 
     <div class="flex-container">
@@ -260,10 +262,14 @@ export default {
               (this.inputParticipants = null),
               (this.inputDate = ""),
               (this.inputDateFin = "");
-
+            this.$router.go(0)
             this.hideDialog();
+
             customAlert("Registro de Evento", "¡Evento creado correctamente!", "success")
-              .then(() => {})
+
+
+              .then(() => { })
+
               .catch((err) => {
                 console.log("Ha ocurrido un error al definir la alerta");
                 console.log(err);
@@ -310,8 +316,12 @@ export default {
               (this.inputDateFin = "");
 
             this.hideDialog();
-            customAlert("Registro de Evento", "¡Evento creado correctamente!", "success")
-              .then(() => {})
+
+            this.$router.go(0)
+            customAlert("Registro de Evento", "¡Evento actualizado correctamente!", "success")
+
+              .then(() => { })
+
               .catch((err) => {
                 console.log("Ha ocurrido un error al definir la alerta");
                 console.log(err);
