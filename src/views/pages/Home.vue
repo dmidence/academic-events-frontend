@@ -19,7 +19,7 @@
 
       <label class="mt-2"></label>
       <div class="d-inline-flex p-2 simple-list-example-scrollspy text-center">
-        <a class="list-group-item list-group-item-action evpriv p-3 mb-2" href="#private">
+        <a class="list-group-item list-group-item-action evpriv mb-2" href="#private">
           <i class="pi pi-lock"></i> Eventos Privados</a
         >
       </div>
@@ -189,16 +189,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .evpriv {
-  font-size: large;
-  color: orange;
   font-weight: bold;
+  color: orange;
+  transition: all 0.4s;
+  &:hover {
+    transform: scale(1.1);
+    color: darkslateblue;
+  }
 }
-.evpriv:hover {
-  font-size: larger;
-  color: darkslateblue;
-}
+
 img {
   height: 240px;
   width: 300px;
