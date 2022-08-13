@@ -148,7 +148,7 @@ h2 {
   padding-right: 10px;
 }
 
-.segment-three router-link {
+.segment-three router-link a {
   background: #494848;
   width: 40px;
   height: 40px;
@@ -157,7 +157,7 @@ h2 {
   font-size: 20px;
 }
 
-.segment-three router-link i {
+.segment-three router-link a i {
   font-size: 30px;
   color: #fff;
   padding: 5px 5px;
