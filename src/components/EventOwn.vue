@@ -1,21 +1,43 @@
 <template>
-  <Dialog header="Mis Eventos" v-model:visible="eventoDialog" :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
-    :style="{ width: '850px' }" :maximizable="true" :modal="true">
+  <Dialog
+    header="Mis Eventos"
+    v-model:visible="eventoDialog"
+    :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+    :style="{ width: '850px' }"
+    :maximizable="true"
+    :modal="true"
+  >
     <div class="p-flu">
-      <div class="card mb-3" style="width: 690px; padding: 1rem; margin: 2rem" v-for="eveOwn in eventOwn"
-        :key="eveOwn._id">
+      <div
+        class="card mb-3"
+        style="width: 690px; padding: 1rem; margin: 2rem"
+        v-for="eveOwn in eventOwn"
+        :key="eveOwn._id"
+      >
         <div class="row g-0">
           <div class="col-md-4">
-            <img :src="eveOwn.image?.secureUrl" class="img-fluid rounded-start" alt="image">
+            <img
+              :src="eveOwn.image?.secureUrl"
+              class="img-fluid rounded-start"
+              alt="image"
+            />
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">Evento: {{ eveOwn.title }}</h5>
-              <p class="card-text">Participantes Registrados: {{ eveOwn.registeredParticipants }}</p>
-              <p class="card-text">Modalidad: {{ eveOwn.modality }} </p>
+              <p class="card-text">
+                Participantes Registrados: {{ eveOwn.registeredParticipants }}
+              </p>
+              <p class="card-text">Modalidad: {{ eveOwn.modality }}</p>
               <p class="card-text">Tipo: {{ eveOwn.type }}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              <Button icon="pi pi-ellipsis-v" label="Mas informacion" @click="infoEvents(eveOwn._id)" />
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+              <Button
+                icon="pi pi-ellipsis-v"
+                label="Mas informacion"
+                @click="infoEvents(eveOwn._id)"
+              />
             </div>
           </div>
         </div>
@@ -23,8 +45,14 @@
     </div>
   </Dialog>
 
-  <Dialog header="Usuarios Inscritos" v-model:visible="infoDialog" :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
-    :style="{ width: '1000px' }" :maximizable="true" :modal="true">
+  <Dialog
+    header="Usuarios Inscritos"
+    v-model:visible="infoDialog"
+    :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+    :style="{ width: '1000px' }"
+    :maximizable="true"
+    :modal="true"
+  >
     <div>
       <table>
         <tr>
@@ -72,10 +100,11 @@ export default {
         });
     },
     infoEvents(_id) {
-      this.infoDialog = true
+      this.infoDialog = true;
       fetchConToken(`api/v1/events/registeredUsers/${_id}`, {}, "GET")
         .then((res) => {
-          console.log(res.data.events.subscribers);
+          console.log("res.data.events.subscribers");
+          console.log(res.data.events.subscribers.length);
           this.eventInfo = res.data.events.subscribers;
         })
         .catch(() => {
@@ -91,7 +120,7 @@ export default {
   },
   computed: {},
   components: {},
-  created() { },
+  created() {},
 };
 </script>
 
