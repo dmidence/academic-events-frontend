@@ -4,7 +4,7 @@
     <div class="logon-container text-center">
       <i class="fa-solid fa-graduation-cap fa-3x brand-max-widt-icon"></i>
       <h2 class="my-2">Verificar Usuario</h2>
-      <h4>Haz click para terminar de verificar tu Usuario</h4>
+      <h4>¡Haz click para terminar de verificar tu Usuario!</h4>
       <hr class="w-100" />
       <span class="vertical-group w-100 my-1">
         <Button label="Verificar" class="w-100" @click="verify()" />
@@ -17,14 +17,15 @@
     </div>
   </div>
   <section class="section-final">
-      <Footer />
-    </section>
+    <Footer />
+  </section>
 </template>
 
 <script>
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
 import { fetchSinToken } from "../../helpers/fetch";
+import { customAlert } from "../../helpers/alerts";
 export default {
   components: {
     Header,
@@ -46,13 +47,20 @@ export default {
       console.log(id)
       console.log(verificationCode)
       fetchSinToken(`api/v1/users/verify/${id}/${verificationCode}`, {}, "GET")
-        .then((res) => {
-          console.log(res.data);
-          console.log("good verify")
+        .then(() => {
+          customAlert(
+            "Verificacion de usuario",
+            "¡Verificacion Exitosa!",
+            "success"
+          )
           this.$router.push("/signin");
         })
-        .catch((err) => {
-          console.log("error al verificar")
+        .catch(() => {
+          customAlert(
+            "Ha ocurrido un error",
+            "¡Ocurrio un error al verificar usuario!",
+            "error"
+          );
         });
 
     },
