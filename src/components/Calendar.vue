@@ -67,6 +67,7 @@ export default {
   methods: {
     calendarEventMe() {
       this.eventoDialog = true;
+      this.calendarOptions.events = [];
       fetchConToken("api/v1/events/me", {}, "GET")
         .then((res) => {
           res.data.events.map((event) => {
