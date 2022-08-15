@@ -10,6 +10,9 @@
         style="margin: 7px" />
       <Button label="Mis eventos" icon="pi pi-calendar" class="fixed-button" @click="$refs.EventOwn.getEventOwn()"
         style="margin: 7px" />
+      <h1></h1>
+      <Button label="Perfil" icon="pi pi-calendar" class="fixed-button" @click="$refs.Perfil.getperfil()"
+        style="margin: 7px" />
       <routerLink class="decoration-none p-0 m-0" to="/Signin">
         <i class="fa fa-sign-out fa-2x p-0 m-0" aria-hidden="true"></i>
       </routerLink>
@@ -25,6 +28,9 @@
       style="margin: 7px" />
     <Button label=" Calendario" icon="pi pi-calendar" class="fixed-button" @click="$refs.Calendar.calendarEventMe()"
       style="margin: 7px" />
+    <h1></h1>
+    <Button label=" Perfil" icon="pi pi-calendar" class="fixed-button" @click="$refs.Perfil.getperfil()"
+      style="margin: 7px" />
 
   </div>
 
@@ -33,6 +39,7 @@
   <EventOwn ref="EventOwn" />
   <EventMe ref="EventMe" />
   <Calendar ref="Calendar" />
+  <Perfil ref="Perfil" />
 </template>
 
 <script>
@@ -40,6 +47,7 @@ import EventModal from "./EventModal.vue";
 import EventOwn from "./EventOwn.vue";
 import EventMe from "./EventMe.vue";
 import Calendar from "./Calendar.vue";
+import Perfil from "./Perfil.vue";
 export default {
   props: [],
   created() {
@@ -71,6 +79,7 @@ export default {
     EventOwn,
     EventMe,
     Calendar,
+    Perfil,
   },
 };
 </script>
