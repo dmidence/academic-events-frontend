@@ -30,6 +30,7 @@
               </p>
               <p class="card-text">Modalidad: {{ eveOwn.modality }}</p>
               <p class="card-text">Tipo: {{ eveOwn.type }}</p>
+
               <p class="card-text">
                 <small class="text-muted">Last updated 3 mins ago</small>
               </p>
@@ -38,6 +39,7 @@
                 label="Mas informacion"
                 @click="infoEvents(eveOwn._id)"
               />
+
             </div>
           </div>
         </div>
