@@ -9,6 +9,7 @@ import restorePassword from "./views/logon/restorePassword.vue";
 import ViewsUser from "./views/pages/ViewsUser.vue";
 import Page404 from "./views/shared/Page404.vue";
 import VerifyUser from "./views/logon/VerifyUser.vue";
+import Graphs from "./views/pages/Graphs.vue";
 
 const routes = [
   { path: "/", component: Landing },
@@ -20,6 +21,7 @@ const routes = [
   { path: "/viewsUser", component: ViewsUser },
   { path: "/Page404", component: Page404 },
   { path: "/VerifyUser", component: VerifyUser },
+  { path: "/graphs", component: Graphs },
 ];
 
 const history = createWebHistory();
