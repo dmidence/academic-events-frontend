@@ -23,7 +23,7 @@
         @click="$refs.EventOwn.getEventOwn()"
         style="margin: 7px"
       />
-
+      <br />
       <Button
         label="Perfil"
         icon="pi pi-calendar"
