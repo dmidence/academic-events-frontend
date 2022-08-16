@@ -2,8 +2,8 @@
   <Header :logged="true" />
   <div class="main-container flex-container pt-2 px-4" v-if="loadPrivate && loadPublic">
     <div class="centered">
-      <DoughnutChart :chartData="allPublicEvents" />
-      <DoughnutChart :chartData="allPrivateEvents" />
+      <h1>Eventos Públicos <DoughnutChart :chartData="allPublicEvents" /></h1>
+      <h1>Eventos Privados<DoughnutChart :chartData="allPrivateEvents" /></h1>
     </div>
   </div>
   <div class="main-container flex-container pt-2 px-4" v-else>
