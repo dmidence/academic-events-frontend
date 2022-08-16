@@ -11,7 +11,7 @@
       </span>
       <span class="vertical-group w-100 my-1">
         <label for="userPassword">Contraseña</label>
-        <InputText id="userPassword" type="password" class="w-100" v-model="inputPassword" />
+        <InputText id="userPassword" type="password" class="w-100" v-model="inputPassword" @keyup.enter="signin()" />
       </span>
       <span class="vertical-group w-100 my-1">
         <!-- <router-link to="/Home" class="text-center w-100"> -->
