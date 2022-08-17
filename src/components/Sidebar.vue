@@ -1,43 +1,20 @@
 <template>
   <div id="mySidepanel" ref="mySidepanel" class="sidepanel" v-if="show">
     <div class="centered">
-      <i
-        class="fa-solid fa-graduation-cap fa-4x text-white active-icon"
-        @click="closeNav()"
-      ></i>
+      <i class="fa-solid fa-graduation-cap fa-4x text-white active-icon" @click="closeNav()"></i>
     </div>
 
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
     <div class="d-grid gap-2 d-md-block optionsPanel" ref="optionsPanel">
-      <Button
-        label="Crear Eventos"
-        icon="pi pi-calendar-plus"
-        class="fixed-button"
-        @click="$refs.eventModal.openNew()"
-        style="margin: 7px"
-      />
-      <Button
-        label="Mis eventos"
-        icon="pi pi-calendar"
-        class="fixed-button"
-        @click="$refs.EventOwn.getEventOwn()"
-        style="margin: 7px"
-      />
+      <Button label="Crear Eventos" icon="pi pi-calendar-plus" class="fixed-button" @click="$refs.eventModal.openNew()"
+        style="margin: 7px" />
+      <Button label="Mis eventos" icon="pi pi-calendar" class="fixed-button" @click="$refs.EventOwn.getEventOwn()"
+        style="margin: 7px" />
       <br />
-      <Button
-        label="Perfil"
-        icon="pi pi-calendar"
-        class="fixed-button"
-        @click="$refs.Perfil.getperfil()"
-        style="margin: 7px"
-      />
+      <Button label="Perfil" icon="pi pi-user" class="fixed-button" @click="$refs.Perfil.getperfil()"
+        style="margin: 7px" />
       <routerLink class="decoration-none p-0 m-0" to="/Graphs">
-        <Button
-          label="Estadísticas"
-          icon="pi pi-chart-bar"
-          class="fixed-button"
-          style="margin: 7px"
-        />
+        <Button label="Estadísticas" icon="pi pi-chart-bar" class="fixed-button" style="margin: 7px" />
       </routerLink>
 
       <routerLink class="decoration-none p-0 m-0" to="/Signin">
@@ -48,34 +25,16 @@
 
   <div id="mySidepanel" ref="mySidepanel" class="sidepanel" v-else>
     <div class="centered">
-      <i
-        class="fa-solid fa-graduation-cap fa-4x text-white active-icon"
-        @click="closeNav()"
-      ></i>
+      <i class="fa-solid fa-graduation-cap fa-4x text-white active-icon" @click="closeNav()"></i>
     </div>
     <a href="javascript:void(0)" class="closebtn" @click="closeNav()">&times;</a>
-    <Button
-      label="Subscripciones"
-      icon="pi pi-calendar"
-      class="fixed-button"
-      @click="$refs.EventMe.getEventMe()"
-      style="margin: 7px"
-    />
-    <Button
-      label=" Calendario"
-      icon="pi pi-calendar"
-      class="fixed-button"
-      @click="$refs.Calendar.calendarEventMe()"
-      style="margin: 7px"
-    />
+    <Button label="Subscripciones" icon="pi pi-calendar" class="fixed-button" @click="$refs.EventMe.getEventMe()"
+      style="margin: 7px" />
+    <Button label=" Calendario" icon="pi pi-calendar" class="fixed-button" @click="$refs.Calendar.calendarEventMe()"
+      style="margin: 7px" />
     <h1></h1>
-    <Button
-      label=" Perfil"
-      icon="pi pi-calendar"
-      class="fixed-button"
-      @click="$refs.Perfil.getperfil()"
-      style="margin: 7px"
-    />
+    <Button label=" Perfil" icon="pi pi-user" class="fixed-button" @click="$refs.Perfil.getperfil()"
+      style="margin: 7px" />
   </div>
 
   <!-- #COMPONENTS -->
@@ -101,7 +60,7 @@ export default {
         : (this.show = true);
     }
   },
-  mounted() {},
+  mounted() { },
   data() {
     return {
       show: false,
@@ -135,7 +94,7 @@ export default {
 
 .active-icon {
   &:hover {
-    color: $primary !important;
+    color: $primary  !important;
   }
 }
 
@@ -152,7 +111,7 @@ export default {
   transition: 0.1s all;
 
   &:hover {
-    color: $primary !important;
+    color: $primary  !important;
     transform: scale(1.02);
     background-color: transparent !important;
   }

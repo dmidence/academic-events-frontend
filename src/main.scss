@@ -148,6 +148,8 @@ a {
 
 .w-30 {
   width: 30%;
+  transition: all 400ms ease;
+  transform: translateY(-3%);
 }
 
 .w-40 {

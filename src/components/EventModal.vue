@@ -130,7 +130,7 @@
 
     <template #footer>
       <Button label="Cancelar" icon="pi pi-times" class="p-button-text" @click="hideDialog" />
-      <Button :label="modalType == 1 ? 'Guardar' : 'Actualzar'" icon="pi pi-check" class="p-button-text"
+      <Button :label="modalType == 1 ? 'Guardar' : 'Actualizar'" icon="pi pi-check" class="p-button-text"
         @click="registerEvent()" />
     </template>
   </Dialog>
