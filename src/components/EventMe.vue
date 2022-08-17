@@ -1,27 +1,34 @@
 <template>
-    <Dialog header="Eventos a los que estoy subscrito" v-model:visible="eventoDialog"
-        :breakpoints="{ '960px': '75vw', '640px': '90vw' }" :style="{ width: '850px' }" :maximizable="true"
-        :modal="true">
+    <Dialog header="Mis Eventos" v-model:visible="eventoDialog" :breakpoints="{ '960px': '75vw', '640px': '90vw' }"
+        :style="{ width: '820px' }" :maximizable="true" :modal="true">
         <div class="p-flu">
-            <Card style="width: 350px; padding: 1rem; margin: 1rem" v-for="eveMe in eventMe" :key="eveMe.title">
-                <template #header>
-                    <img alt="user header" :src="eveMe.image.secureUrl">
-                </template>
-                <template #title>
-                    Titulo: {{ eveMe.title }}
-                </template>
-                <template #content>
-                    <p> Finaliza: {{ eveMe.endDate }} </p>
-                    <p>Modalidad: {{ eveMe.modality }}</p>
-                    <p>Tipo: {{ eveMe.type }}</p>
-                </template>
-                <template #footer>
-                    <Button label="Mas informacion" icon="pi pi-ellipsis-v" class="p-button-text"
-                        @click="infoEventsMe()" />
-                    <Button label="Desuscribir" icon="pi pi-times-circle" class="p-button-text"
-                        @click="unsubscribed(eveMe._id)" />
-                </template>
-            </Card>
+
+            <div class="card mb-3" style="width: 690px; padding: 1rem; margin: 2rem" v-for="eveMe in eventMe"
+                :key="eveMe._id">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img :src="eveMe.image?.secureUrl" class="img-fluid rounded-start" alt="image" />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Evento: {{ eveMe.title }}</h5>
+                            <p class="card-text">
+                                Participantes Registrados: {{ eveMe.registeredParticipants }}
+                            </p>
+                            <p class="card-text">Modalidad: {{ eveMe.modality }}</p>
+                            <p class="card-text">Tipo: {{ eveMe.type }}</p>
+
+                            <p class="card-text">
+                                <small class="text-muted">Descripcion: {{ eveMe.description }} </small>
+                            </p>
+                            <Button icon="pi pi-times-circle" label="Desuscribir" @click="unsubscribed(eveMe._id)" />
+                            <Button label="Mas informacion" icon="pi pi-ellipsis-v" class="p-button-text"
+                                @click="infoEventsMe()" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </Dialog>
 </template>
@@ -81,11 +88,12 @@ export default {
 
     },
 };
-</script>
+</script >
 
-<style>
+<style scoped>
 img {
     height: 250px;
+    width: 950;
     object-fit: cover;
 }
 </style>
