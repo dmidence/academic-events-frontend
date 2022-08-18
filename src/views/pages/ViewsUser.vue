@@ -4,21 +4,23 @@
     <p><a id="publicos"></a></p>
   </div>
   <div class="main-container flex-container pt-2 px-4">
+    <div class="d-inline-flex p-2 simple-list-example-scrollspy text-center">
+      <a class="list-group-item list-group-item-action evpriv p-3 mb-2" href="#private">
+        <i class="pi pi-arrow-down"></i> Eventos Privados</a
+      >
+    </div>
     <div class="container1">
       <h1>Eventos Publicos</h1>
     </div>
-    <div class="d-inline-flex p-2 simple-list-example-scrollspy text-center">
-      <a class="list-group-item list-group-item-action evpriv p-3 mb-2" href="#private">
-        <i class="pi pi-arrow-down"></i> Eventos Privados</a>
-    </div>
+
     <div class="container-card">
       <div class="card" v-for="eve in evento" :key="eve._id">
         <figure>
-          <img :src="eve.image?.secureUrl">
+          <img :src="eve.image?.secureUrl" />
         </figure>
         <div class="contenido-card">
           <h3>{{ eve.title }}</h3>
-          <p>Ponente: {{ eve.speaker }} </p>
+          <p>Ponente: {{ eve.speaker }}</p>
           <a @click="subscribe(eve._id)">Subscribirse</a>
         </div>
       </div>
@@ -26,9 +28,7 @@
     <!--Fin   Tarjetas-->
   </div>
 
-
   <div class="main-container flex-container pt-2 px-4">
-
     <div>
       <p><a id="private"></a></p>
     </div>
@@ -38,23 +38,23 @@
     </div>
     <div class="d-inline-flex p-2 simple-list-example-scrollspy text-center">
       <a class="list-group-item list-group-item-action evpriv p-3 mb-2" href="#publicos">
-        <i class="pi pi-arrow-up"></i> Eventos Publicos</a>
+        <i class="pi pi-arrow-up"></i> Eventos Publicos</a
+      >
     </div>
 
     <div class="container-card">
       <div class="card" v-for="privateEve in eventoprivado" :key="privateEve._id">
         <figure>
-          <img :src="privateEve.image?.secureUrl">
+          <img :src="privateEve.image?.secureUrl" />
         </figure>
         <div class="contenido-card">
           <h3>{{ privateEve.title }}</h3>
-          <p>Ponente: {{ privateEve.speaker }} </p>
+          <p>Ponente: {{ privateEve.speaker }}</p>
           <a @click="subscribe(privateEve._id)">Subscribirse</a>
         </div>
       </div>
     </div>
   </div>
-
 
   <div class="container"></div>
 </template>
@@ -103,11 +103,7 @@ export default {
       if (confirm("Esta seguro de suscribirse a este evento??")) {
         const res = await fetchConToken(`api/v1/events/subscribed/${_id}`, {}, "POST")
           .then((res) => {
-            customAlert(
-              "Subscrito al Evento",
-              "¡Gracias por inscribirte!",
-              "success"
-            );
+            customAlert("Subscrito al Evento", "¡Gracias por inscribirte!", "success");
           })
           .catch(() => {
             customAlert(
@@ -154,19 +150,19 @@ img {
 
 .container1 {
   padding: 1.3rem 2rem;
-  box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   border-radius: 15px;
   text-align: center;
   display: block;
-  width: 83%;
+  width: 100%;
   font-size: 1.75em;
   margin-bottom: 0.5rem;
 }
 
 .container2 {
   padding: 1.3rem 2rem;
-  box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   text-align: center;
   border-radius: 10px;
@@ -176,7 +172,6 @@ img {
   margin-bottom: 0.5rem;
   background: linear-gradient(#78dbf95f, transparent);
 }
-
 
 /*Cards*/
 .container-card {

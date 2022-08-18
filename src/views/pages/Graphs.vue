@@ -2,8 +2,16 @@
   <Header :logged="true" />
   <div class="main-container flex-container pt-2 px-4" v-if="loadPrivate && loadPublic">
     <div class="centered">
-      <h1>Eventos Públicos <DoughnutChart :chartData="allPublicEvents" /></h1>
-      <h1>Eventos Privados<DoughnutChart :chartData="allPrivateEvents" /></h1>
+      <div class="containertitle">
+        <h1>Eventos Privados</h1>
+
+        <DoughnutChart :chartData="allPrivateEvents" />
+      </div>
+      <div class="containertitle">
+        <h1>Eventos Publicos</h1>
+
+        <DoughnutChart :chartData="allPublicEvents" />
+      </div>
     </div>
   </div>
   <div class="main-container flex-container pt-2 px-4" v-else>
@@ -117,6 +125,18 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   margin: auto;
+}
+
+.containertitle {
+  padding: 1.3rem 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 15px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-size: 1.75em;
+  margin-bottom: 0.5rem;
 }
 .centered-col {
   display: flex;

@@ -12,15 +12,23 @@
       </routerLink>
 
       <routerLink class="decoration-none" to="/Signin">
-        <Button class="btn btn-secondary" style="margin-right: 20px" label="Iniciar Sesión" />
+        <Button
+          class="btn btn-secondary"
+          style="margin-right: 20px"
+          label="Iniciar Sesión"
+        />
       </routerLink>
     </template>
     <template #end v-else>
+      <i
+        class="fa-solid fa-gear fa-2x text-white p-2 cursor-pointer"
+        @click="$refs.sideBar.openNav()"
+      ></i>
 
-      <i class="fa-solid fa-gear fa-2x text-white cursor-pointer" @click="$refs.sideBar.openNav()"></i>
-
-      <i class="fa fa-sign-out fa-2x  cursor-pointer color-detail" @click="logout()"></i>
-
+      <i
+        class="fa fa-sign-out fa-2x cursor-pointer p-2 color-detail"
+        @click="logout()"
+      ></i>
     </template>
   </Menubar>
 
@@ -38,8 +46,7 @@ export default {
   methods: {
     logout() {
       sessionStorage.clear();
-      this.$router.push('/Signin');
-
+      this.$router.push("/Signin");
     },
   },
   props: {
