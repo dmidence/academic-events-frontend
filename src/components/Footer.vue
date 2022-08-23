@@ -30,9 +30,9 @@
               Disfruta de eventos exclusivos que encontrarás unicamente en nuestra
               plataforma.
             </p>
-            <a target="_blank" href="https:github.com/dmidence/academic-events-frontend"
-              ><i class="pi pi-github"></i
-            ></a>
+            <!-- <a target="_blank" href="https:github.com/dmidence/academic-events-frontend"
+              ><i class="pi pi-github"></i -->
+            <!-- ></a> -->
             <!-- <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
             <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
             <a href="https://www.pinterest.com"><i class="fa fa-pinterest"></i></a> -->
