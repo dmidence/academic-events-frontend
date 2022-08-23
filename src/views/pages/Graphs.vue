@@ -3,14 +3,14 @@
   <div class="main-container flex-container pt-2 px-4" v-if="loadPrivate && loadPublic">
     <div class="centered">
       <div class="containertitle">
-        <h1>Eventos Privados</h1>
-
-        <DoughnutChart :chartData="allPrivateEvents" />
-      </div>
-      <div class="containertitle">
         <h1>Eventos Publicos</h1>
 
         <DoughnutChart :chartData="allPublicEvents" />
+      </div>
+      <div class="containertitle">
+        <h1>Eventos Privados</h1>
+
+        <DoughnutChart :chartData="allPrivateEvents" />
       </div>
     </div>
   </div>
